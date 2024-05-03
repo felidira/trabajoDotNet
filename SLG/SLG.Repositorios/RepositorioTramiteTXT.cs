@@ -16,18 +16,17 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         sw.WriteLine(tramite.ultModificacion);
         sw.WriteLine(tramite.ultModificacionID);
     }
-
     public void ConsultaPorEtiqueta()
     {
         throw new NotImplementedException();
     }
 
-    public void EliminarTramite()
+    public void EliminarTramite(int idElim)
     {
         throw new NotImplementedException();
     }
 
-    public void ModificarTramite()
+    public void ModificarTramite(Tramite tramite)
     {
         throw new NotImplementedException();
     }
