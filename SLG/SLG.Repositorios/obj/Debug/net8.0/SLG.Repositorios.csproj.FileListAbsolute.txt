@@ -13,3 +13,12 @@ C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Repositorios\o
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Repositorios\obj\Debug\net8.0\refint\SLG.Repositorios.dll
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.pdb
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Repositorios\obj\Debug\net8.0\ref\SLG.Repositorios.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\refint\SLG.Repositorios.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.pdb
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.csproj.AssemblyReference.cache
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.AssemblyInfoInputs.cache
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.AssemblyInfo.cs
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.sourcelink.json

@@ -18,3 +18,6 @@ C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Consola\obj\De
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Consola\obj\Debug\net8.0\SLG.Consola.pdb
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Consola\obj\Debug\net8.0\SLG.Consola.genruntimeconfig.cache
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajo1\SLG\SLG.Consola\obj\Debug\net8.0\ref\SLG.Consola.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Consola\obj\Debug\net8.0\SLG.Consola.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Consola\obj\Debug\net8.0\refint\SLG.Consola.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Consola\obj\Debug\net8.0\SLG.Consola.pdb
