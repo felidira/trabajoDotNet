@@ -6,7 +6,7 @@ public class SecuenciaTramiteTXT
     public int LeerID()
     {
         using StreamReader sr= new StreamReader(nombreArch);
-        int auxID=int.Parse(sr.ReadLine()); 
+        int auxID=int.Parse(sr.ReadLine() ?? ""); 
         using StreamWriter sw = new StreamWriter(nombreArch);
         auxID++;
         sw.WriteLine(auxID.ToString(),false);

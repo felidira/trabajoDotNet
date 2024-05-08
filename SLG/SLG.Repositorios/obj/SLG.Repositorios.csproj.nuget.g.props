@@ -4,30 +4,12 @@
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
-<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
-<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Tomas\.nuget\packages\</NuGetPackageFolders>
-=======
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/alumnos/.nuget/packages/</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/alumnos/.nuget/packages/</NuGetPackageFolders>
->>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
-=======
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Felipe\.nuget\packages\</NuGetPackageFolders>
->>>>>>> 9cbcbc1cc455faddac9db644303569f8c0fe33e2:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
-<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
-    <SourceRoot Include="C:\Users\Tomas\.nuget\packages\" />
-=======
-    <SourceRoot Include="/home/alumnos/.nuget/packages/" />
->>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
-=======
     <SourceRoot Include="C:\Users\Felipe\.nuget\packages\" />
->>>>>>> 9cbcbc1cc455faddac9db644303569f8c0fe33e2:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.g.props
   </ItemGroup>
 </Project>

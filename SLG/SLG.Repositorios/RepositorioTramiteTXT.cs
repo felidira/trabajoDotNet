@@ -1,5 +1,6 @@
 namespace SLG.Repositorios;
 
+using System.Collections;
 using System.ComponentModel;
 using SLG.Aplicacion;
 
@@ -81,6 +82,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             {
                 lista[pos]=tramite;
             }
+            pos++;
         }
         File.Delete(nombreArch);
         foreach (Tramite t in lista)

@@ -4,7 +4,7 @@ public interface IExpedienteRepositorio
 {
     void AgregarExpediente(Expediente expediente);
     void EliminarExpediente();
-    void ModificarExpediente();
-    void ConsultaPorId();
+    void ModificarExpediente(Expediente expediente);
+    Expediente ConsultaPorId(int id);
     void ConsultaTodos();
 }

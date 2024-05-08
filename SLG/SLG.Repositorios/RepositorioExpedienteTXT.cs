@@ -16,7 +16,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         sw.WriteLine(expediente.estado);
     }
 
-    public void ConsultaPorId()
+    public Expediente ConsultaPorId(int id)
     {
         throw new NotImplementedException();
     }
@@ -31,7 +31,14 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         throw new NotImplementedException();
     }
 
-    public void ModificarExpediente()
+    public void CambiarEstadoExpediente(int ExpedienteId, EstadoExpediente nuevoEstado)
+    {
+        Expediente exp=ConsultaPorId(ExpedienteId);
+        exp.estado=nuevoEstado;
+        ModificarExpediente(exp);
+    }
+
+    public void ModificarExpediente(Expediente expediente)
     {
         throw new NotImplementedException();
     }

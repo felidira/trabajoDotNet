@@ -13,15 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SLG.Consola")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.AssemblyInfo.cs
-<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.AssemblyInfo.cs
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37d67933a658815a4cb5139b574db9a0fe81f405")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
->>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.AssemblyInfo.cs
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+361ca60f4a20f2d409293d92aa8016e5663df4dd")]
->>>>>>> 9cbcbc1cc455faddac9db644303569f8c0fe33e2:SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.AssemblyInfo.cs
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb46dda57b3da75605f9ba6d97a2da8e1bdb5232")]
 [assembly: System.Reflection.AssemblyProductAttribute("SLG.Consola")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SLG.Consola")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
