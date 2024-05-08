@@ -3,6 +3,7 @@ namespace SLG.Repositorios;
 public class SecuenciaExpedienteTXT
 {
     readonly string nombreArch="SecuenciaExp.txt";
+    private int contId;
 
     public int LeerID()
     {
@@ -13,4 +14,7 @@ public class SecuenciaExpedienteTXT
         sw.WriteLine(auxID.ToString(),false);
         return auxID;
     }
+
+
+
 }
