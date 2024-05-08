@@ -6,5 +6,5 @@ IExpedienteRepositorio repo = new RepositorioExpedienteTXT();
 
 var agregarExpediente = new CasoDeUsoExpedienteAlta(repo);
 
-agregarExpediente.Ejecutar(new Expediente(1,"pijaaa"));
+agregarExpediente.Ejecutar(new Expediente(1,"lll"));
 
