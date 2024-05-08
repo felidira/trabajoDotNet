@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SLG.Consola/1.0.0": {
+        "dependencies": {
+          "SLG.Aplicacion": "1.0.0",
+          "SLG.Repositorios": "1.0.0"
+        },
+        "runtime": {
+          "SLG.Consola.dll": {}
+        }
+      },
+      "SLG.Aplicacion/1.0.0": {
+        "runtime": {
+          "SLG.Aplicacion.dll": {}
+        }
+      },
+      "SLG.Repositorios/1.0.0": {
+        "dependencies": {
+          "SLG.Aplicacion": "1.0.0"
+        },
+        "runtime": {
+          "SLG.Repositorios.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SLG.Consola/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SLG.Aplicacion/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SLG.Repositorios/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
