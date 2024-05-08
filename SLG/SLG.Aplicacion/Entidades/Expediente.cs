@@ -8,8 +8,7 @@ public class Expediente{
     public int ultModificacionID {get; set;}
     public EstadoExpediente estado {get; set;}
 
-    public Expediente(int _id, String car){
-        id=_id;
+    public Expediente(String car){
         caratula=car;
         fechaCreacion=DateTime.Now;
         ultModificacion=fechaCreacion;
