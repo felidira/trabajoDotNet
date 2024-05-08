@@ -13,7 +13,15 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SLG.Repositorios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/Debug/net8.0/SLG.Repositorios.AssemblyInfo.cs
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/Debug/net8.0/SLG.Repositorios.AssemblyInfo.cs
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37d67933a658815a4cb5139b574db9a0fe81f405")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/Debug/net8.0/SLG.Repositorios.AssemblyInfo.cs
+=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+361ca60f4a20f2d409293d92aa8016e5663df4dd")]
+>>>>>>> 9cbcbc1cc455faddac9db644303569f8c0fe33e2:SLG/SLG.Repositorios/obj/Debug/net8.0/SLG.Repositorios.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyProductAttribute("SLG.Repositorios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SLG.Repositorios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
