@@ -10,7 +10,8 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
     public void AgregarTramite(Tramite tramite)
     {
         using StreamWriter sw = new StreamWriter(nombreArch,true);
-        sw.WriteLine(tramite.id);
+        SecuenciaTramiteTXT SecuenciaIDS = new SecuenciaTramiteTXT();
+        sw.WriteLine(SecuenciaIDS.LeerID());
         sw.WriteLine(tramite.ExpedienteId);
         sw.WriteLine(tramite.tipoTramite);
         sw.WriteLine(tramite.contenido);

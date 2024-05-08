@@ -9,9 +9,13 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SLG.Consola
 <<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.GeneratedMSBuildEditorConfig.editorconfig
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.GeneratedMSBuildEditorConfig.editorconfig
 build_property.ProjectDir = C:\Users\Tomas\proyectosDotnet\trabajoDotNet-main\SLG\SLG.Consola\
 =======
 build_property.ProjectDir = /home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Consola/
 >>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.GeneratedMSBuildEditorConfig.editorconfig
+=======
+build_property.ProjectDir = C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Consola\
+>>>>>>> 9cbcbc1cc455faddac9db644303569f8c0fe33e2:SLG/SLG.Consola/obj/Debug/net8.0/SLG.Consola.GeneratedMSBuildEditorConfig.editorconfig
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

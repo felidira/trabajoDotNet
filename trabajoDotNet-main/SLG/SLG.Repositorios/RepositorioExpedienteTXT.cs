@@ -7,7 +7,8 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
     public void AgregarExpediente(Expediente expediente)
     {
         using StreamWriter sw = new StreamWriter(nombreArch,true);
-        sw.WriteLine(expediente.id);
+        SecuenciaExpedienteTXT SecuenciaIDS= new SecuenciaExpedienteTXT();
+        sw.WriteLine(SecuenciaIDS.LeerID());
         sw.WriteLine(expediente.caratula);
         sw.WriteLine(expediente.fechaCreacion);
         sw.WriteLine(expediente.ultModificacion);
