@@ -46,11 +46,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/project.assets.json
     "C:\\Users\\Tomas\\.nuget\\packages\\": {}
+=======
+    "/home/alumnos/.nuget/packages/": {}
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Consola/obj/project.assets.json
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/project.assets.json
       "projectUniqueName": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Consola\\SLG.Consola.csproj",
       "projectName": "SLG.Consola",
       "projectPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Consola\\SLG.Consola.csproj",
@@ -59,6 +64,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Consola/SLG.Consola.csproj",
+      "projectName": "SLG.Consola",
+      "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Consola/SLG.Consola.csproj",
+      "packagesPath": "/home/alumnos/.nuget/packages/",
+      "outputPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Consola/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/alumnos/.nuget/NuGet/NuGet.Config"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Consola/obj/project.assets.json
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -70,11 +85,19 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/project.assets.json
             "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
               "projectPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj"
             },
             "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {
               "projectPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj"
+=======
+            "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj": {
+              "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj"
+            },
+            "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/SLG.Repositorios.csproj": {
+              "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/SLG.Repositorios.csproj"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Consola/obj/project.assets.json
             }
           }
         }
@@ -109,7 +132,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Consola/obj/project.assets.json
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "/home/alumnos/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Consola/obj/project.assets.json
       }
     }
   }

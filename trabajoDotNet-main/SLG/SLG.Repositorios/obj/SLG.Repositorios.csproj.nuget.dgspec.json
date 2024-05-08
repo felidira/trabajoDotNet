@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
     "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/SLG.Repositorios.csproj": {}
+  },
+  "projects": {
+    "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj",
+        "projectName": "SLG.Aplicacion",
+        "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj",
+        "packagesPath": "/home/alumnos/.nuget/packages/",
+        "outputPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alumnos/.nuget/NuGet/NuGet.Config"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -58,6 +75,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -73,6 +91,23 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+          "runtimeIdentifierGraphPath": "/home/alumnos/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/SLG.Repositorios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/SLG.Repositorios.csproj",
+        "projectName": "SLG.Repositorios",
+        "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/SLG.Repositorios.csproj",
+        "packagesPath": "/home/alumnos/.nuget/packages/",
+        "outputPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alumnos/.nuget/NuGet/NuGet.Config"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -84,8 +119,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
               "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
                 "projectPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj"
+=======
+              "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj": {
+                "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
               }
             }
           }
@@ -120,7 +160,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "/home/alumnos/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/SLG.Repositorios.csproj.nuget.dgspec.json
         }
       }
     }

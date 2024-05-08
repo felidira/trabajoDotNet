@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SLG.Repositorios
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Repositorios/obj/Debug/net8.0/SLG.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
 build_property.ProjectDir = C:\Users\Tomas\proyectosDotnet\trabajoDotNet-main\SLG\SLG.Repositorios\
+=======
+build_property.ProjectDir = /home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Repositorios/
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Repositorios/obj/Debug/net8.0/SLG.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

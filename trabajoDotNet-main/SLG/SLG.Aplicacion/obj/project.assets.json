@@ -8,11 +8,16 @@
     "net8.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Aplicacion/obj/project.assets.json
     "C:\\Users\\Tomas\\.nuget\\packages\\": {}
+=======
+    "/home/alumnos/.nuget/packages/": {}
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Aplicacion/obj/project.assets.json
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Aplicacion/obj/project.assets.json
       "projectUniqueName": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
       "projectName": "SLG.Aplicacion",
       "projectPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet-main\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
@@ -21,6 +26,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj",
+      "projectName": "SLG.Aplicacion",
+      "projectPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj",
+      "packagesPath": "/home/alumnos/.nuget/packages/",
+      "outputPath": "/home/alumnos/Descargas/trabajoDotNet-main/SLG/SLG.Aplicacion/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/alumnos/.nuget/NuGet/NuGet.Config"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Aplicacion/obj/project.assets.json
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +79,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD:trabajoDotNet-main/SLG/SLG.Aplicacion/obj/project.assets.json
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "/home/alumnos/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 361ca60f4a20f2d409293d92aa8016e5663df4dd:SLG/SLG.Aplicacion/obj/project.assets.json
       }
     }
   }
