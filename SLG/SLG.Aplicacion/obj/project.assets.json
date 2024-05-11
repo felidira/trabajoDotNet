@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/home/alumnos/.nuget/packages/": {}
+    "C:\\Users\\Felipe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alumnos/Escritorio/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj",
+      "projectUniqueName": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
       "projectName": "SLG.Aplicacion",
-      "projectPath": "/home/alumnos/Escritorio/trabajoDotNet-main/SLG/SLG.Aplicacion/SLG.Aplicacion.csproj",
-      "packagesPath": "/home/alumnos/.nuget/packages/",
-      "outputPath": "/home/alumnos/Escritorio/trabajoDotNet-main/SLG/SLG.Aplicacion/obj/",
+      "projectPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
+      "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/alumnos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/alumnos/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

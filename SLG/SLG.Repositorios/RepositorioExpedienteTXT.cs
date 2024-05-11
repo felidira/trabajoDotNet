@@ -51,9 +51,14 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         return expediente;
     }
     
-    public void EliminarExpediente(int expedienteID)
+    public void EliminarExpediente(Expediente expediente)
     {
-        throw new NotImplementedException();
+        var lista = ConsultaTodos();
+        lista.Remove(expediente);
+        File.Delete(nombreArch);
+        foreach (Expediente e in lista){
+            AgregarExpediente(e);
+        }
     }
 
     public void ModificarExpediente(Expediente expediente)
