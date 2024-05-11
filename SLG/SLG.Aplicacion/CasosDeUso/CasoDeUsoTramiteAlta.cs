@@ -1,13 +1,17 @@
 namespace SLG.Aplicacion;
 
-class CasoDeUsoTramiteAlta(ITramiteRepositorio repo)
+class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, ServicioAutorizacionProvisorio autorizacion,IExpedienteRepositorio repoE,ServicioActualizacionDeEstado actualizacion)
 {
   public void Ejecutar(int idUsuario, Tramite tramite)
   {
-    ServicioAutorizacionProvicional autorizacion = new ServicioAutorizacionProvicional();
     if (autorizacion.PoseeElPermiso(idUsuario))
     {
-      repo.AgregarTramite(tramite);
-    } else throw new AutorizacionException;
+      tramite.fechaCreacion=DateTime.Now;
+      tramite.ultModificacion=tramite.fechaCreacion;
+      tramite.ultModificacionID=idUsuario;
+      repoT.AgregarTramite(tramite);
+      Expediente e = repoE.ConsultaPorId(tramite.ExpedienteId);
+      actualizacion.actualizar(e);
+    } else throw new AutorizacionException();
   }
 }

@@ -17,7 +17,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         sw.WriteLine(expediente.estado);
     }
 
-    public List<Expediente> ListarExpedientes()
+    public List<Expediente> ConsultaTodos()
     {
         var resultado=new List<Expediente>();
         using var sr = new StreamReader(nombreArch);
@@ -35,43 +35,38 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         return resultado;
     }
 
-    public Expediente? ConsultaPorId(int idabuscar)
+    public Expediente ConsultaPorId(int idaBuscar)
     {
-        List<Expediente> lista=ListarExpedientes();
-        Expediente? expediente= null;
+        List<Expediente> lista=ConsultaTodos();
+        Expediente expediente= new Expediente();
         int pos = 0;
-        while (pos<lista.Count && lista[pos].id != idabuscar)
+        while (pos<lista.Count && lista[pos].id != idaBuscar)
         {
             pos++;
         }
-        if (lista[pos].id == idabuscar)
+        if (lista[pos].id == idaBuscar)
         {
             expediente=lista[pos];
         }
         return expediente;
     }
-
-    public void ConsultaTodos()
-    {
-        throw new NotImplementedException();
-    }
-
+    
     public void EliminarExpediente(int expedienteID)
     {
         throw new NotImplementedException();
     }
 
-    public void CambiarEstadoExpediente(int ExpedienteId, EstadoExpediente nuevoEstado)
-    {
-        Expediente? exp=ConsultaPorId(ExpedienteId);
-        if(exp != null){
-            exp.estado=nuevoEstado;
-            ModificarExpediente(exp);
-        }
-    }
-
     public void ModificarExpediente(Expediente expediente)
     {
-        throw new NotImplementedException();
+        var lista = ConsultaTodos();
+        int pos=0;
+        while (lista[pos].id!=expediente.id) {
+            pos++;
+        }
+        lista[pos]=expediente;
+        File.Delete(nombreArch);
+        foreach (Expediente e in lista){
+            AgregarExpediente(e);
+        }
     }
 }

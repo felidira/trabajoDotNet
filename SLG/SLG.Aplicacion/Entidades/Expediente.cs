@@ -7,6 +7,8 @@ public class Expediente{
     public DateTime ultModificacion {get; set;}
     public int ultModificacionID {get; set;}
     public EstadoExpediente estado {get; set;}
+    public List<Tramite> listaTramites= new List<Tramite>();
+
 
     public Expediente(){
         //vacio
@@ -14,8 +16,6 @@ public class Expediente{
 
     public Expediente(String car){
         caratula=car;
-        fechaCreacion=DateTime.Now;
-        ultModificacion=fechaCreacion;
         ultModificacionID= -1;
         estado=0;
     }

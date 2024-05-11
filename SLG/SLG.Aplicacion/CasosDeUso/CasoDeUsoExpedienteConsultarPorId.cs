@@ -1,14 +1,11 @@
 namespace SLG.Aplicacion;
 
-class CasoDeUsoExpedienteConsultarPorId(IRepositorioExpediente repo)
+class CasoDeUsoExpedienteConsultarPorId(ITramiteRepositorio repoT,IExpedienteRepositorio repoE)
 {
-    public Expediente Ejecutar(int idUsuario, Expediente expediente)
+    public Expediente Ejecutar(int expedienteId)
     {
-        ServicioAutorizacionProvicional autorizacion = new ServicioAutorizacionProvicional();
-        if (autorizacion.PoseeElPermiso(idUsuario))
-        {
-            return = repo.ConsultaPorId(expediente.id);
-        } else throw new AutorizacionException;
-        return null;
+        Expediente expediente = repoE.ConsultaPorId(expedienteId); 
+        expediente.listaTramites=repoT.ConsultaPorIdExpediente(expedienteId);
+        return expediente;
     }
 }

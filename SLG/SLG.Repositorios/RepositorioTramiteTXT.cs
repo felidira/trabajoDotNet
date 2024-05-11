@@ -21,12 +21,31 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         sw.WriteLine(tramite.ultModificacionID);
     }
 
-    public void ConsultaPorEtiqueta()
+    public List<Tramite> ConsultaPorEtiqueta(EtiquetaTramite etiqueta)
     {
-        throw new NotImplementedException();
+        var lista = ListarTramites();
+        foreach (Tramite t in lista){
+            if (t.tipoTramite!=etiqueta)
+            {
+                lista.Remove(t);
+            }
+        }
+        return lista;
     }
 
-    public List<Tramite> ListarTramites()
+    public List<Tramite> ConsultaPorIdExpediente(int idExpediente)
+    {
+        var lista = ListarTramites();
+        foreach (Tramite t in lista){
+            if (t.ExpedienteId!=idExpediente)
+            {
+                lista.Remove(t);
+            }
+        }
+        return lista;
+    }
+
+    private List<Tramite> ListarTramites()
     {
         var resultado = new List<Tramite>();
         using var sr = new StreamReader(nombreArch);
@@ -43,22 +62,6 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             resultado.Add(T);
         }
         return resultado;
-    }
-
-    private Tramite? BuscarUltTramite(int idABuscar)
-    {
-        List<Tramite> lista = ListarTramites();
-        Tramite? devuelvo = null;
-        int pos=0;
-        while (pos < lista.Count){
-            devuelvo = (lista[pos].id == idABuscar) ? lista[pos] : null;
-            pos++;
-        }
-        if (devuelvo == null)
-        { 
-            Console.WriteLine($"No se encontró el tramite del expediente {idABuscar}");
-        }
-        return devuelvo;
     }
 
     public void EliminarTramite(Tramite tramite)

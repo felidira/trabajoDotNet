@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-class ServicioAutorizacionProvisorio : IServicioAutorizacion
+public class ServicioAutorizacionProvisorio : IServicioAutorizacion
 {
-    bool PoseeElPermiso(int idUsuario) => (idUsuario == 1) ? true : false;
+    public bool PoseeElPermiso(int idUsuario) => (idUsuario == 1) ? true : false;
 }

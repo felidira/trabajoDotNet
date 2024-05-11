@@ -5,6 +5,7 @@ public interface ITramiteRepositorio
   public void AgregarTramite(Tramite tramite);
   public void EliminarTramite(Tramite tramite);
   public void ModificarTramite(Tramite tramite);
-  public void ConsultaPorEtiqueta();
+  public List<Tramite> ConsultaPorIdExpediente(int idExpediente);
+  public List<Tramite> ConsultaPorEtiqueta(EtiquetaTramite etiqueta);
 }
   
