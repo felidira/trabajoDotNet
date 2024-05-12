@@ -2,14 +2,13 @@
 using SLG.Aplicacion;
 namespace SLG.Repositorios;
 
-public class RepositorioExpedienteTXT : IExpedienteRepositorio
+public class RepositorioExpedienteTXT(SecuenciaExpedienteTXT secuenciaIDS) : IExpedienteRepositorio 
 {
     readonly String nombreArch= "archivo.txt";
     public void AgregarExpediente(Expediente expediente)
     {
         using StreamWriter sw = new StreamWriter(nombreArch,true);
-        SecuenciaExpedienteTXT SecuenciaIDS= new SecuenciaExpedienteTXT();
-        sw.WriteLine(SecuenciaIDS.LeerID());
+        sw.WriteLine(secuenciaIDS.LeerID());
         sw.WriteLine(expediente.caratula);
         sw.WriteLine(expediente.fechaCreacion);
         sw.WriteLine(expediente.ultModificacion);

@@ -4,15 +4,14 @@ using System.Collections;
 using System.ComponentModel;
 using SLG.Aplicacion;
 
-public class RepositorioTramiteTXT : ITramiteRepositorio
+public class RepositorioTramiteTXT(SecuenciaTramiteTXT secuenciaIDS) : ITramiteRepositorio
 {
     readonly String nombreArch="Tramites.txt";
 
     public void AgregarTramite(Tramite tramite)
     {
         using StreamWriter sw = new StreamWriter(nombreArch,true);
-        SecuenciaTramiteTXT SecuenciaIDS = new SecuenciaTramiteTXT();
-        sw.WriteLine(SecuenciaIDS.LeerID());
+        sw.WriteLine(secuenciaIDS.LeerID());
         sw.WriteLine(tramite.ExpedienteId);
         sw.WriteLine(tramite.tipoTramite);
         sw.WriteLine(tramite.contenido);

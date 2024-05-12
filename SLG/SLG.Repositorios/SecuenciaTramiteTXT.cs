@@ -5,8 +5,10 @@ public class SecuenciaTramiteTXT
     readonly string nombreArch="SecuenciaTramite.txt";
     public int LeerID()
     {
-        using StreamReader sr= new StreamReader(nombreArch);
-        int auxID=int.Parse(sr.ReadLine() ?? ""); 
+        int auxID;
+        using (StreamReader sr= new StreamReader(nombreArch)){
+            auxID=int.Parse(sr.ReadLine() ?? "0"); 
+        }
         using StreamWriter sw = new StreamWriter(nombreArch);
         auxID++;
         sw.WriteLine(auxID.ToString(),false);

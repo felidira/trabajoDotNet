@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE,ITramiteRepositorio repoT, ServicioAutorizacionProvisorio autorizacion){
+public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepositorio repoT, ServicioAutorizacionProvisorio autorizacion){
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
         if (autorizacion.PoseeElPermiso(idUsuario)){

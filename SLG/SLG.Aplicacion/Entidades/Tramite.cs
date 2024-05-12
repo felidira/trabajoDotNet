@@ -14,13 +14,9 @@ public class Tramite{
         //vacío
     }
 
-    public Tramite(int id,int eid, String cont){
-        this.id=id;
-        ExpedienteId=eid;
-        tipoTramite=0;
-        contenido=cont;
-        fechaCreacion=DateTime.Now;
-        ultModificacion=fechaCreacion;
-        ultModificacionID=-1;
+    public Tramite(int expId, String conteni){
+        ExpedienteId = expId; // 
+        tipoTramite = 0;
+        contenido = conteni;
     }
 }

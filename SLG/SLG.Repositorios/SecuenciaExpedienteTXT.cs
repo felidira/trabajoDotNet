@@ -6,8 +6,10 @@ public class SecuenciaExpedienteTXT
 
     public int LeerID()
     {
-        using StreamReader sr= new StreamReader(nombreArch);
-        int auxID=int.Parse(sr.ReadLine() ?? "-1");
+        int auxID;
+        using (StreamReader sr= new StreamReader(nombreArch)){
+            auxID=int.Parse(sr.ReadLine() ?? "0");
+        }
         using StreamWriter sw = new StreamWriter(nombreArch);
         auxID++;
         sw.WriteLine(auxID.ToString(),false);

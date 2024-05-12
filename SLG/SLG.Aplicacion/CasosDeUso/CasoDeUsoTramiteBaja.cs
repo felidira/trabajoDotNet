@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, ServicioAutorizacionProvisorio autorizacion, ServicioActualizacionDeEstado actualizacion, IExpedienteRepositorio repoE){
+public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IExpedienteRepositorio repoE, ServicioAutorizacionProvisorio autorizacion, ServicioActualizacionDeEstado actualizacion){
 
     public void Ejecutar(int idUsuario, Tramite tramite)
     {

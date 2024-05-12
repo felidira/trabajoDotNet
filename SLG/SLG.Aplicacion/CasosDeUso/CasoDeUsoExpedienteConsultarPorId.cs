@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-class CasoDeUsoExpedienteConsultarPorId(ITramiteRepositorio repoT,IExpedienteRepositorio repoE)
+public class CasoDeUsoExpedienteConsultarPorId(ITramiteRepositorio repoT,IExpedienteRepositorio repoE)
 {
     public Expediente Ejecutar(int expedienteId)
     {

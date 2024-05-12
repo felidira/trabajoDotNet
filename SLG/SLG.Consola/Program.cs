@@ -2,9 +2,11 @@
 using SLG.Aplicacion;
 using SLG.Repositorios;
 
+SecuenciaExpedienteTXT secuenciaExpediente = new SecuenciaExpedienteTXT();
+SecuenciaTramiteTXT secuenciaTramite = new SecuenciaTramiteTXT();
 
-ITramiteRepositorio repoTram = new RepositorioTramiteTXT();
-IExpedienteRepositorio repoExp = new RepositorioExpedienteTXT();
+ITramiteRepositorio repoTram = new RepositorioTramiteTXT(secuenciaTramite);
+IExpedienteRepositorio repoExp = new RepositorioExpedienteTXT(secuenciaExpediente);
 
 var validadorExp = new ValidadorExpediente();
 var validadorTram = new ValidadorTramite();
@@ -23,3 +25,8 @@ var eliminarTramite = new CasoDeUsoTramiteBaja(repoTram, repoExp, servicioAutori
 var consultarPorEtiquetaTramite = new CasoDeUsoTramiteConsultaPorEtiqueta(repoTram);
 var modificarTramite = new CasoDeUsoTramiteModificar(repoTram, repoExp, servicioAutorizacion, servicioActualizacion);
 
+Expediente expediente = new Expediente("test");
+agregarExpediente.Ejecutar(1, expediente);
+
+Tramite tramite = new Tramite(0, "PruebaTest");
+agregarTramite.Ejecutar(1, tramite);
