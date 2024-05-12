@@ -40,14 +40,11 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         List<Expediente> lista=ConsultaTodos();
         Expediente expediente= new Expediente();
         int pos = 0;
-        while (pos<lista.Count && lista[pos].id != idaBuscar)
+        while (lista[pos].id != idaBuscar)
         {
             pos++;
         }
-        if (lista[pos].id == idaBuscar)
-        {
-            expediente=lista[pos];
-        }
+        expediente = lista[pos];
         return expediente;
     }
     
@@ -65,7 +62,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
     {
         var lista = ConsultaTodos();
         int pos=0;
-        while (lista[pos].id!=expediente.id) {
+        while (lista[pos].id != expediente.id) {
             pos++;
         }
         lista[pos]=expediente;

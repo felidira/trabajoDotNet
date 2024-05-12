@@ -2,9 +2,26 @@
 using SLG.Aplicacion;
 using SLG.Repositorios;
 
-IExpedienteRepositorio repo = new RepositorioExpedienteTXT();
 
-var agregarExpediente = new CasoDeUsoExpedienteAlta(repo);
+ITramiteRepositorio repoTram = new RepositorioTramiteTXT();
+IExpedienteRepositorio repoExp = new RepositorioExpedienteTXT();
 
-agregarExpediente.Ejecutar(new Expediente("lll"));
+var validadorExp = new ValidadorExpediente();
+var validadorTram = new ValidadorTramite();
+
+var especificacionCambioDeEstado =  new EspecificacionCambioDeEstado();
+var servicioAutorizacion = new ServicioAutorizacionProvisorio();
+var servicioActualizacion = new ServicioActualizacionDeEstado(especificacionCambioDeEstado, repoExp);
+
+var agregarExpediente = new CasoDeUsoExpedienteAlta(repoExp, servicioAutorizacion, validadorExp);
+var modificarExpediente = new CasoDeUsoExpedienteModificar(repoExp, servicioAutorizacion);
+var eliminarExpepediente = new CasoDeUsoExpedienteBaja(repoExp, repoTram, servicioAutorizacion);
+var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultarPorId(repoTram, repoExp);
+var consultarPorTodosExpediente = new CasoDeUsoExpedienteConsultarTodos(repoExp); 
+var agregarTramite = new CasoDeUsoTramiteAlta(repoTram, repoExp, servicioAutorizacion, validadorTram, servicioActualizacion);
+var eliminarTramite = new CasoDeUsoTramiteBaja(repoTram, repoExp, servicioAutorizacion, servicioActualizacion);
+var consultarPorEtiquetaTramite = new CasoDeUsoTramiteConsultaPorEtiqueta(repoTram);
+var ModificarTramite = new CasoDeUsoTramiteModificar(repoTram, repoExp, servicioAutorizacion, servicioActualizacion);
+
+
 
