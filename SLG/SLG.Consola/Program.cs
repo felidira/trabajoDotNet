@@ -24,27 +24,3 @@ var agregarTramite = new CasoDeUsoTramiteAlta(repoTram, repoExp, servicioAutoriz
 var eliminarTramite = new CasoDeUsoTramiteBaja(repoTram, repoExp, servicioAutorizacion, servicioActualizacion);
 var consultarPorEtiquetaTramite = new CasoDeUsoTramiteConsultaPorEtiqueta(repoTram);
 var modificarTramite = new CasoDeUsoTramiteModificar(repoTram, repoExp, servicioAutorizacion, servicioActualizacion);
-
-Expediente e1= new Expediente("primerExp");
-Expediente e2= new Expediente("segundoExp");
-Expediente e3= new Expediente("tercerExp");
-agregarExpediente.Ejecutar(1,e1);
-agregarExpediente.Ejecutar(1,e2);
-agregarExpediente.Ejecutar(1,e3);
-
-Tramite t1=new Tramite(1,"hola");
-Tramite t2=new Tramite (3,"aborrar");
-agregarTramite.Ejecutar(1,t1);
-agregarTramite.Ejecutar(1,t2);
-
-Expediente expediente= consultarPorIdExpediente.Ejecutar(2);
-expediente.caratula="segundoExpMODIFICADO2";
-modificarExpediente.Ejecutar(1,expediente);
-
-Expediente expedienteaborrar=consultarPorIdExpediente.Ejecutar(3);
-eliminarExpediente.Ejecutar(1,expedienteaborrar);
-
-List<Expediente> lista = consultarPorTodosExpediente.Ejecutar();
-foreach (Expediente e in lista) {
-    Console.WriteLine(e.caratula);
-}
