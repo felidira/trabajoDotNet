@@ -28,20 +28,21 @@ var modificarTramite = new CasoDeUsoTramiteModificar(repoTram, repoExp, servicio
 Expediente e1= new Expediente("primerExp");
 Expediente e2= new Expediente("segundoExp");
 Expediente e3= new Expediente("tercerExp");
-//agregarExpediente.Ejecutar(1,e1);
-//agregarExpediente.Ejecutar(1,e2);
-//agregarExpediente.Ejecutar(1,e3);
+agregarExpediente.Ejecutar(1,e1);
+agregarExpediente.Ejecutar(1,e2);
+agregarExpediente.Ejecutar(1,e3);
 
 Tramite t1=new Tramite(1,"hola");
 Tramite t2=new Tramite (3,"aborrar");
-//agregarTramite.Ejecutar(1,t1);
-//agregarTramite.Ejecutar(1,t2);
+agregarTramite.Ejecutar(1,t1);
+agregarTramite.Ejecutar(1,t2);
 
 Expediente expediente= consultarPorIdExpediente.Ejecutar(2);
 expediente.caratula="segundoExpMODIFICADO2";
 modificarExpediente.Ejecutar(1,expediente);
 
-eliminarExpediente.Ejecutar(1,e3);
+Expediente expedienteaborrar=consultarPorIdExpediente.Ejecutar(3);
+eliminarExpediente.Ejecutar(1,expedienteaborrar);
 
 List<Expediente> lista = consultarPorTodosExpediente.Ejecutar();
 foreach (Expediente e in lista) {
