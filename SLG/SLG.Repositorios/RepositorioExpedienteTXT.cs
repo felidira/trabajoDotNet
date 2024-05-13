@@ -28,7 +28,7 @@ public class RepositorioExpedienteTXT(SecuenciaExpedienteTXT secuenciaIDS) : IEx
             E.fechaCreacion= DateTime.Parse(sr.ReadLine() ?? "");
             E.ultModificacion= DateTime.Parse(sr.ReadLine() ?? "");
             E.ultModificacionID=int.Parse(sr.ReadLine() ?? "-1");
-            E.estado=(EstadoExpediente)int.Parse(sr.ReadLine() ?? "");
+            E.estado=(EstadoExpediente)Enum.Parse(typeof(EstadoExpediente), sr.ReadLine() ?? "");
             resultado.Add(E);
         }
         return resultado;
@@ -39,11 +39,14 @@ public class RepositorioExpedienteTXT(SecuenciaExpedienteTXT secuenciaIDS) : IEx
         List<Expediente> lista=ConsultaTodos();
         Expediente expediente= new Expediente();
         int pos = 0;
-        while (lista[pos].id != idaBuscar)
+        while (pos < (lista.Count()-1) && lista[pos].id != idaBuscar)
         {
             pos++;
         }
-        expediente = lista[pos];
+        if (lista[pos].id == idaBuscar)
+        {
+            expediente = lista[pos];
+        }
         return expediente;
     }
     

@@ -38,3 +38,10 @@ C:\Users\Tomas\proyectosDotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8
 C:\Users\Tomas\proyectosDotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\refint\SLG.Repositorios.dll
 C:\Users\Tomas\proyectosDotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repositorios.pdb
 C:\Users\Tomas\proyectosDotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\ref\SLG.Repositorios.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\bin\Debug\net8.0\SLG.Repositorios.deps.json
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\bin\Debug\net8.0\SLG.Repositorios.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\bin\Debug\net8.0\SLG.Repositorios.pdb
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\bin\Debug\net8.0\SLG.Aplicacion.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\bin\Debug\net8.0\SLG.Aplicacion.pdb
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\SLG.Repo.132AD1CF.Up2Date
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.Repositorios\obj\Debug\net8.0\ref\SLG.Repositorios.dll

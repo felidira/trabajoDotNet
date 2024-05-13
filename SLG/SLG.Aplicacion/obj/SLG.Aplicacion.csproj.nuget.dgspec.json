@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {}
+    "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
+    "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
         "projectName": "SLG.Aplicacion",
-        "projectPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tomas\\proyectosDotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\obj\\",
+        "projectPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

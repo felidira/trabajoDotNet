@@ -53,7 +53,7 @@ public class RepositorioTramiteTXT(SecuenciaTramiteTXT secuenciaIDS) : ITramiteR
             var T = new Tramite();
             T.id = int.Parse(sr.ReadLine() ?? "-1");
             T.ExpedienteId = int.Parse(sr.ReadLine() ?? "-1");
-            T.tipoTramite= (EtiquetaTramite)int.Parse(sr.ReadLine() ?? "0");
+            T.tipoTramite= (EtiquetaTramite) Enum.Parse(typeof(EtiquetaTramite), sr.ReadLine() ?? "0");
             T.contenido= sr.ReadLine();
             T.fechaCreacion= DateTime.Parse(sr.ReadLine() ?? "");
             T.ultModificacion= DateTime.Parse(sr.ReadLine() ?? "");

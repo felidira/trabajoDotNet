@@ -28,5 +28,5 @@ var modificarTramite = new CasoDeUsoTramiteModificar(repoTram, repoExp, servicio
 Expediente expediente = new Expediente("test");
 agregarExpediente.Ejecutar(1, expediente);
 
-Tramite tramite = new Tramite(0, "PruebaTest");
+Tramite tramite = new Tramite(1, "PruebaTest");
 agregarTramite.Ejecutar(1, tramite);
