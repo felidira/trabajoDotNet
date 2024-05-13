@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SLG.Repositorios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f744408c9220ab955b7def5d0b5688a75ce5d232")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17e020fd6503a38b12d0f86784f381e5e3f81832")]
 [assembly: System.Reflection.AssemblyProductAttribute("SLG.Repositorios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SLG.Repositorios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

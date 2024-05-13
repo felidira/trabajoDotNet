@@ -9,6 +9,7 @@ public class CasoDeUsoTramiteModificar(ITramiteRepositorio repoT, IExpedienteRep
             tramite.ultModificacionID=idUsuario;
             repoT.ModificarTramite(tramite);
             Expediente e = repoE.ConsultaPorId(tramite.ExpedienteId);
+            e.listaTramites=repoT.ConsultaPorIdExpediente(e.id);
             actualizacion.actualizar(e);
         } else throw new AutorizacionException();
     }

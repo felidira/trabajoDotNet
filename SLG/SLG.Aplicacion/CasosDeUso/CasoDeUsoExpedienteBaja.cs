@@ -4,6 +4,7 @@ public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepos
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
         if (autorizacion.PoseeElPermiso(idUsuario)){
+            expediente.listaTramites=repoT.ConsultaPorIdExpediente(expediente.id);
             foreach (Tramite t in expediente.listaTramites){
                 repoT.EliminarTramite(t);
             }

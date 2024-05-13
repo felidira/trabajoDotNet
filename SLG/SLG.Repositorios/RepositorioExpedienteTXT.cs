@@ -5,10 +5,15 @@ namespace SLG.Repositorios;
 public class RepositorioExpedienteTXT(SecuenciaExpedienteTXT secuenciaIDS) : IExpedienteRepositorio 
 {
     readonly String nombreArch= "archivo.txt";
-    public void AgregarExpediente(Expediente expediente)
+    public void AgregarExpediente(Expediente expediente, bool secuencia) //true = lee secuencia (nuevos expedientes) false = lee id que ya tiene el expediente
     {
         using StreamWriter sw = new StreamWriter(nombreArch,true);
-        sw.WriteLine(secuenciaIDS.LeerID());
+        if (secuencia){
+            sw.WriteLine(secuenciaIDS.LeerID());
+        } else
+        {
+            sw.WriteLine(expediente.id);
+        }
         sw.WriteLine(expediente.caratula);
         sw.WriteLine(expediente.fechaCreacion);
         sw.WriteLine(expediente.ultModificacion);
@@ -53,10 +58,16 @@ public class RepositorioExpedienteTXT(SecuenciaExpedienteTXT secuenciaIDS) : IEx
     public void EliminarExpediente(Expediente expediente)
     {
         var lista = ConsultaTodos();
-        lista.Remove(expediente);
-        File.Delete(nombreArch);
+        List<Expediente> listanueva = new List<Expediente>();
         foreach (Expediente e in lista){
-            AgregarExpediente(e);
+            if (e.id != expediente.id)
+            {
+                listanueva.Add(e);
+            }
+        }
+        File.Delete(nombreArch);
+        foreach (Expediente e in listanueva){
+            AgregarExpediente(e,false);
         }
     }
 
@@ -64,13 +75,15 @@ public class RepositorioExpedienteTXT(SecuenciaExpedienteTXT secuenciaIDS) : IEx
     {
         var lista = ConsultaTodos();
         int pos=0;
-        while (lista[pos].id != expediente.id) {
+        while (pos < lista.Count-1 && lista[pos].id != expediente.id) {
             pos++;
         }
-        lista[pos]=expediente;
+        if (lista[pos].id == expediente.id){
+            lista[pos]=expediente;
+        }
         File.Delete(nombreArch);
         foreach (Expediente e in lista){
-            AgregarExpediente(e);
+            AgregarExpediente(e,false);
         }
     }
 }

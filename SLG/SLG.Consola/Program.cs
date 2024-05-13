@@ -17,7 +17,7 @@ var servicioActualizacion = new ServicioActualizacionDeEstado(especificacionCamb
 
 var agregarExpediente = new CasoDeUsoExpedienteAlta(repoExp, servicioAutorizacion, validadorExp);
 var modificarExpediente = new CasoDeUsoExpedienteModificar(repoExp, servicioAutorizacion);
-var eliminarExpepediente = new CasoDeUsoExpedienteBaja(repoExp, repoTram, servicioAutorizacion);
+var eliminarExpediente = new CasoDeUsoExpedienteBaja(repoExp, repoTram, servicioAutorizacion);
 var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultarPorId(repoTram, repoExp);
 var consultarPorTodosExpediente = new CasoDeUsoExpedienteConsultarTodos(repoExp); 
 var agregarTramite = new CasoDeUsoTramiteAlta(repoTram, repoExp, servicioAutorizacion, validadorTram, servicioActualizacion);
@@ -25,8 +25,25 @@ var eliminarTramite = new CasoDeUsoTramiteBaja(repoTram, repoExp, servicioAutori
 var consultarPorEtiquetaTramite = new CasoDeUsoTramiteConsultaPorEtiqueta(repoTram);
 var modificarTramite = new CasoDeUsoTramiteModificar(repoTram, repoExp, servicioAutorizacion, servicioActualizacion);
 
-Expediente expediente = new Expediente("test");
-agregarExpediente.Ejecutar(1, expediente);
+Expediente e1= new Expediente("primerExp");
+Expediente e2= new Expediente("segundoExp");
+Expediente e3= new Expediente("tercerExp");
+//agregarExpediente.Ejecutar(1,e1);
+//agregarExpediente.Ejecutar(1,e2);
+//agregarExpediente.Ejecutar(1,e3);
 
-Tramite tramite = new Tramite(1, "PruebaTest");
-agregarTramite.Ejecutar(1, tramite);
+Tramite t1=new Tramite(1,"hola");
+Tramite t2=new Tramite (3,"aborrar");
+//agregarTramite.Ejecutar(1,t1);
+//agregarTramite.Ejecutar(1,t2);
+
+Expediente expediente= consultarPorIdExpediente.Ejecutar(2);
+expediente.caratula="segundoExpMODIFICADO2";
+modificarExpediente.Ejecutar(1,expediente);
+
+eliminarExpediente.Ejecutar(1,e3);
+
+List<Expediente> lista = consultarPorTodosExpediente.Ejecutar();
+foreach (Expediente e in lista) {
+    Console.WriteLine(e.caratula);
+}

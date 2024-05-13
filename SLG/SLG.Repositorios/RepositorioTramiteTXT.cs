@@ -8,10 +8,14 @@ public class RepositorioTramiteTXT(SecuenciaTramiteTXT secuenciaIDS) : ITramiteR
 {
     readonly String nombreArch="Tramites.txt";
 
-    public void AgregarTramite(Tramite tramite)
+    public void AgregarTramite(Tramite tramite, bool secuencia) //true = lee secuencia (nuevos tramites) false = lee id que ya tiene el tramite
     {
         using StreamWriter sw = new StreamWriter(nombreArch,true);
-        sw.WriteLine(secuenciaIDS.LeerID());
+        if (secuencia){
+            sw.WriteLine(secuenciaIDS.LeerID());
+        } else{
+            sw.WriteLine(tramite.id);
+        }
         sw.WriteLine(tramite.ExpedienteId);
         sw.WriteLine(tramite.tipoTramite);
         sw.WriteLine(tramite.contenido);
@@ -35,13 +39,14 @@ public class RepositorioTramiteTXT(SecuenciaTramiteTXT secuenciaIDS) : ITramiteR
     public List<Tramite> ConsultaPorIdExpediente(int idExpediente)
     {
         var lista = ListarTramites();
+        List<Tramite> listanueva = new List<Tramite>();
         foreach (Tramite t in lista){
-            if (t.ExpedienteId!=idExpediente)
+            if (t.ExpedienteId==idExpediente)
             {
-                lista.Remove(t);
+                listanueva.Add(t);
             }
         }
-        return lista;
+        return listanueva;
     }
 
     private List<Tramite> ListarTramites()
@@ -66,11 +71,16 @@ public class RepositorioTramiteTXT(SecuenciaTramiteTXT secuenciaIDS) : ITramiteR
     public void EliminarTramite(Tramite tramite)
     {
         List<Tramite> lista= ListarTramites();
-        lista.Remove(tramite);
+        List<Tramite> listanueva= new List<Tramite>();
+        foreach (Tramite t in lista){
+            if (t.id != tramite.id){
+                listanueva.Add(t);
+            }
+        }
         File.Delete(nombreArch);
-        foreach (Tramite t in lista)
+        foreach (Tramite t in listanueva)
         {
-            AgregarTramite(t);
+            AgregarTramite(t,false);
         }
     }
 
@@ -89,7 +99,7 @@ public class RepositorioTramiteTXT(SecuenciaTramiteTXT secuenciaIDS) : ITramiteR
         File.Delete(nombreArch);
         foreach (Tramite t in lista)
         {
-            AgregarTramite(t);
+            AgregarTramite(t,false);
         }
     }
 }

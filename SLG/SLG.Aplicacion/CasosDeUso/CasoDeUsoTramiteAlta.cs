@@ -11,8 +11,9 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IExpedienteReposito
           tramite.fechaCreacion=DateTime.Now;
           tramite.ultModificacion=tramite.fechaCreacion;
           tramite.ultModificacionID=idUsuario;
-          repoT.AgregarTramite(tramite);
+          repoT.AgregarTramite(tramite,true);
           Expediente e = repoE.ConsultaPorId(tramite.ExpedienteId);
+          e.listaTramites=repoT.ConsultaPorIdExpediente(e.id);
           actualizacion.actualizar(e);
         } else throw new ValidacionException();
       } else throw new AutorizacionException();      

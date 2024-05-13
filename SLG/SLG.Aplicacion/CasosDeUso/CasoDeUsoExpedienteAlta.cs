@@ -13,7 +13,7 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, ServicioAutori
                     expediente.fechaCreacion=DateTime.Now;
                     expediente.ultModificacion=expediente.fechaCreacion;
                     expediente.ultModificacionID=idUsuario;
-                    repo.AgregarExpediente(expediente);
+                    repo.AgregarExpediente(expediente,true);
                 } else throw new ValidacionException();
             } else throw new AutorizacionException();
         } else throw new Exception("id de usuario no valido");

@@ -8,6 +8,7 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IExpedienteReposito
         {
             repoT.EliminarTramite(tramite);
             Expediente e = repoE.ConsultaPorId(tramite.ExpedienteId);
+            e.listaTramites=repoT.ConsultaPorIdExpediente(e.id);
             actualizacion.actualizar(e);
         } else throw new AutorizacionException();
         
