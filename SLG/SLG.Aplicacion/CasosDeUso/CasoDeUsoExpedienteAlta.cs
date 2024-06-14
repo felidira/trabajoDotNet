@@ -1,10 +1,10 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, ServicioAutorizacionProvisorio autorizacion, ValidadorExpediente validador)
+public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo,ValidadorID VID, ServicioAutorizacionProvisorio autorizacion, ValidadorExpediente validador)
 {
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
-        if (autorizacion.ValidarId(idUsuario))
+        if (VID.ValidarId(idUsuario))
         {
             if (autorizacion.PoseeElPermiso(idUsuario))
             {

@@ -1,10 +1,10 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IExpedienteRepositorio repoE, ServicioAutorizacionProvisorio autorizacion, ValidadorTramite validador, ServicioActualizacionDeEstado actualizacion)
+public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT,ValidadorID VID, IExpedienteRepositorio repoE, ServicioAutorizacionProvisorio autorizacion, ValidadorTramite validador, ServicioActualizacionDeEstado actualizacion)
 {
   public void Ejecutar(int idUsuario, Tramite tramite)
   {
-    if (autorizacion.ValidarId(idUsuario)){
+    if (VID.ValidarId(idUsuario)){
       if (autorizacion.PoseeElPermiso(idUsuario))
       {
         if (validador.ValidarTramite(tramite)){

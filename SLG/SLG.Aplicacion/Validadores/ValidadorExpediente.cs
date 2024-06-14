@@ -4,6 +4,6 @@ public class ValidadorExpediente{
 
     public bool ValidarExp(Expediente expediente)
     {
-        return (expediente.caratula != null);
+        return (expediente.caratula != null && expediente.caratula != "");
     }
 }
