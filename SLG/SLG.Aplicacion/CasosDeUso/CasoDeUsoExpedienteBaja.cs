@@ -1,10 +1,10 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteBaja(IContextDB context, ServicioAutorizacion autorizacion){
+public class CasoDeUsoExpedienteBaja(IMetodosDB metodos, ServicioAutorizacion autorizacion){
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
         if (autorizacion.PoseeElPermiso(idUsuario)){
-            context.EliminarExpediente(expediente);
+            metodos.EliminarExpediente(expediente);
         } else throw new AutorizacionException();
     }
 }

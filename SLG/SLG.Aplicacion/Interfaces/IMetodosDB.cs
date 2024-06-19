@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-public interface IContextDB
+public interface IMetodosDB
 {
     void AgregarExpediente(Expediente expediente);
     void EliminarExpediente(Expediente expediente);
@@ -12,4 +12,5 @@ public interface IContextDB
     void ModificarTramite(Tramite tramite);
     List<Tramite> ConsultaPorIdExpediente(int idExpediente);
     List<Tramite> ConsultaPorEtiqueta(EtiquetaTramite etiqueta);
+    Usuario BuscarUsuario(String correo);
 }

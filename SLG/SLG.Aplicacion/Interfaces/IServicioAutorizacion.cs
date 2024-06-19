@@ -1,4 +1,4 @@
 public interface IServicioAutorizacion
 {
-    bool PoseeElPermiso(int IdUsuario);
+    bool PoseeElPermiso(String permisosUsuario, Permiso aBuscar);
 }
