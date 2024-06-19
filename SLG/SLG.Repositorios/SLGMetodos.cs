@@ -3,7 +3,7 @@ using SLG.Aplicacion;
 
 namespace SLG.Repositorios;
 
-public class SLGMetodos(SLGContext context) : IContextDB
+public class SLGMetodos(SLGContext context) : IMetodosDB
 {
     public void AgregarExpediente(Expediente expediente)
     {
@@ -89,4 +89,13 @@ public class SLGMetodos(SLGContext context) : IContextDB
         } else throw new RepositorioException();
         context.SaveChanges();
     }
+
+    public Usuario BuscarUsuario(int idABuscar){
+        var aux = context.Usuarios.Where(u => u.id == idABuscar).SingleOrDefault();
+        if (aux == null){
+            throw new RepositorioException();
+        }
+        return aux;
+    }
+
 }

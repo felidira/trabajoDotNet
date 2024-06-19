@@ -1,13 +1,13 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoTramiteBaja(IContextDB context, ServicioAutorizacion autorizacion, ServicioActualizacionDeEstado actualizacion){
+public class CasoDeUsoTramiteBaja(IMetodosDB metodos, ServicioAutorizacion autorizacion, ServicioActualizacionDeEstado actualizacion){
 
     public void Ejecutar(int idUsuario, Tramite tramite)
     {
-        if (autorizacion.PoseeElPermiso(idUsuario))
+        if (autorizacion.PoseeElPermiso(metodos.BuscarUsuario(idUsuario).permisos, Permiso.TramiteBaja))
         {
-            context.EliminarTramite(tramite);
-            Expediente e = context.ConsultaPorId(tramite.ExpedienteId);
+            metodos.EliminarTramite(tramite);
+            Expediente e = metodos.ConsultaPorId(tramite.ExpedienteId);
             actualizacion.actualizar(e);
         } else throw new AutorizacionException();
         
