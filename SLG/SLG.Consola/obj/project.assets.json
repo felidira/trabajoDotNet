@@ -1221,19 +1221,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Felipe\\.nuget\\packages\\": {}
+    "C:\\Users\\Tomas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Consola\\SLG.Consola.csproj",
+      "projectUniqueName": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Consola\\SLG.Consola.csproj",
       "projectName": "SLG.Consola",
-      "projectPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Consola\\SLG.Consola.csproj",
-      "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Consola\\obj\\",
+      "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Consola\\SLG.Consola.csproj",
+      "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1245,11 +1245,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj"
+            "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj"
             },
-            "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj"
+            "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj"
             }
           }
         }
@@ -1284,7 +1284,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
