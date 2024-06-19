@@ -12,5 +12,7 @@ public interface IMetodosDB
     void ModificarTramite(Tramite tramite);
     List<Tramite> ConsultaPorIdExpediente(int idExpediente);
     List<Tramite> ConsultaPorEtiqueta(EtiquetaTramite etiqueta);
-    Usuario BuscarUsuario(String correo);
+    Usuario BuscarUsuario(int id);
+    void AgregarPermiso(int idUsuario, Permiso Aagregar);
+    void EliminarPermiso(int idUsuario, Permiso Aeliminar);
 }
