@@ -1,6 +1,4 @@
-using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using SLG.Aplicacion;
 
 namespace SLG.Repositorios;
@@ -47,15 +45,11 @@ public class SLGMetodos(SLGContext context) : IContextDB
 
     public List<Expediente> ConsultaTodos()
     {
-<<<<<<< HEAD
-        throw new NotImplementedException();
-=======
         var aux = context.Expedientes.Select(n => n).ToList();
         if (aux == null){
             throw new RepositorioException();
         }
-        return aux
->>>>>>> b7cffc19f5a320d172146e276e0d642d6efcd329
+        return aux;
     }
 
     public void EliminarExpediente(Expediente expediente)

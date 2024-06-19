@@ -7,13 +7,8 @@ public class Expediente{
     public DateTime ultModificacion {get; set;}
     public int ultModificacionID {get; set;}
     public EstadoExpediente estado {get; set;}
-    public List<Tramite> listaTramites= new List<Tramite>();
-<<<<<<< HEAD
     public List<Tramite>? Tramite {get; set;}
-=======
-    public List<Tramite> Tramite {get; set;}
 
->>>>>>> b7cffc19f5a320d172146e276e0d642d6efcd329
 
     public Expediente(){
         //vacio

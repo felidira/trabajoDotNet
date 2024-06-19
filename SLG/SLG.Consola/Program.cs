@@ -3,4 +3,3 @@ using SLG.Aplicacion;
 using SLG.Repositorios;
 
 SLGsqlite.Inicializar();
-

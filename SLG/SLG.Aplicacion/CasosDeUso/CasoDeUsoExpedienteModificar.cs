@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteModificar(IContextDB context,ValidadorExpediente validador, ServicioAutorizacionProvisorio autorizacion)
+public class CasoDeUsoExpedienteModificar(IContextDB context,ValidadorExpediente validador,ServicioAutorizacion autorizacion)
 {
     public void Ejecutar(int idUsuario, Expediente expediente)
     {

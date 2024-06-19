@@ -4,8 +4,8 @@ public class ServicioActualizacionDeEstado(EspecificacionCambioDeEstado especifi
 
     public void actualizar(Expediente expediente)
     {
-        EstadoExpediente estadoExpediente=especificacion.especificar(expediente.listaTramites[expediente.listaTramites.Count()-1]);
-        expediente.estado = (estadoExpediente != 0) ? estadoExpediente : expediente.estado;
+        //EstadoExpediente estadoExpediente=especificacion.especificar(expediente.listaTramites[expediente.listaTramites.Count()-1]);
+        //expediente.estado = (estadoExpediente != 0) ? estadoExpediente : expediente.estado;
         context.ModificarExpediente(expediente);
     }
 }

@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoTramiteModificar(IContextDB context,ValidadorTramite validador,ServicioAutorizacionProvisorio autorizacion, ServicioActualizacionDeEstado actualizacion){
+public class CasoDeUsoTramiteModificar(IContextDB context,ValidadorTramite validador,ServicioAutorizacion autorizacion, ServicioActualizacionDeEstado actualizacion){
 
     public void Ejecutar(int idUsuario,Tramite tramite)
     {
@@ -10,7 +10,6 @@ public class CasoDeUsoTramiteModificar(IContextDB context,ValidadorTramite valid
                 tramite.ultModificacionID=idUsuario;
                 context.ModificarTramite(tramite);
                 Expediente e = context.ConsultaPorId(tramite.ExpedienteId);
-                e.listaTramites=context.ConsultaPorIdExpediente(e.id);
                 actualizacion.actualizar(e);
             } else throw new ValidacionException();
         } else throw new AutorizacionException();
