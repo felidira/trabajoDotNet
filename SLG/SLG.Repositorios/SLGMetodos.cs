@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SLG.Aplicacion;
+using System.Linq;
 
 namespace SLG.Repositorios;
 
@@ -98,4 +99,28 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
         return aux;
     }
 
+    public void AgregarPermiso(int idUsuario, Permiso Aagregar)
+    {
+        var usuario = context.Usuarios.Where(u => u.id == idUsuario).SingleOrDefault();
+        if (usuario!=null){
+            usuario.permisos += Aagregar+",";
+        } else throw new RepositorioException();
+        context.SaveChanges();
+    }
+
+    public void EliminarPermiso(int idUsuario, Permiso Aeliminar)
+    {
+        var usuario = context.Usuarios.Where(u => u.id == idUsuario).SingleOrDefault();
+        if (usuario!=null){
+            string[] aux= usuario.permisos.Split(","); //aux = array de permisos que tiene el usuario
+            List<string> auxl= aux.ToList();           //guardo en auxl una lista auxiliar para poder asi
+            auxl.Remove(Aeliminar.ToString());         //eliminar el permiso con el .Remove
+            string final="";                           //string para sobreescribir permisos del usuario
+            foreach (string st in auxl){
+                final += st;                           //cargo el string con los permisos resultantes;
+            }
+            usuario.permisos=final;                    //salvo los nuevos permisos del usuario
+            context.SaveChanges();                     //si no encuentra el permiso a eliminar, no hace NADA.
+        }
+    }
 }
