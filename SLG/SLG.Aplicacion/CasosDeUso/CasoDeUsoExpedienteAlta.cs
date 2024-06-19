@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo,ValidadorID VID, ServicioAutorizacionProvisorio autorizacion, ValidadorExpediente validador)
+public class CasoDeUsoExpedienteAlta(IContextDB context,ValidadorID VID, ServicioAutorizacionProvisorio autorizacion, ValidadorExpediente validador)
 {
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
@@ -13,7 +13,7 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo,ValidadorID VID
                     expediente.fechaCreacion=DateTime.Now;
                     expediente.ultModificacion=expediente.fechaCreacion;
                     expediente.ultModificacionID=idUsuario;
-                    repo.AgregarExpediente(expediente,true);
+                    context.AgregarExpediente(expediente,true);
                 } else throw new ValidacionException();
             } else throw new AutorizacionException();
         } else throw new Exception("id de usuario no valido");

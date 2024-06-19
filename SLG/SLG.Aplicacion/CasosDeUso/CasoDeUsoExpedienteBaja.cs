@@ -1,14 +1,14 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepositorio repoT, ServicioAutorizacionProvisorio autorizacion){
+public class CasoDeUsoExpedienteBaja(IContextDB context, ServicioAutorizacionProvisorio autorizacion){
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
         if (autorizacion.PoseeElPermiso(idUsuario)){
-            expediente.listaTramites=repoT.ConsultaPorIdExpediente(expediente.id);
+            expediente.listaTramites=context.ConsultaPorIdExpediente(expediente.id);
             foreach (Tramite t in expediente.listaTramites){
-                repoT.EliminarTramite(t);
+                context.EliminarTramite(t);
             }
-            repoE.EliminarExpediente(expediente);
+            context.EliminarExpediente(expediente);
         } else throw new AutorizacionException();
     }
 }

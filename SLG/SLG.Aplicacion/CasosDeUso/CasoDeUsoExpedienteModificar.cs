@@ -1,6 +1,6 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteModificar(IExpedienteRepositorio repo,ValidadorExpediente validador, ServicioAutorizacionProvisorio autorizacion)
+public class CasoDeUsoExpedienteModificar(IContextDB context,ValidadorExpediente validador, ServicioAutorizacionProvisorio autorizacion)
 {
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
@@ -8,7 +8,7 @@ public class CasoDeUsoExpedienteModificar(IExpedienteRepositorio repo,ValidadorE
             if (validador.ValidarExp(expediente)) {
                 expediente.ultModificacion=DateTime.Now;
                 expediente.ultModificacionID=idUsuario;
-                repo.ModificarExpediente(expediente);
+                context.ModificarExpediente(expediente);
             } throw new ValidacionException();
         } else throw new AutorizacionException();
     }

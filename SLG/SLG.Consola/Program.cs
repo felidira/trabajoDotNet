@@ -5,8 +5,7 @@ using SLG.Repositorios;
 SecuenciaExpedienteTXT secuenciaExpediente = new SecuenciaExpedienteTXT();
 SecuenciaTramiteTXT secuenciaTramite = new SecuenciaTramiteTXT();
 
-ITramiteRepositorio repoTram = new RepositorioTramiteTXT(secuenciaTramite);
-IExpedienteRepositorio repoExp = new RepositorioExpedienteTXT(secuenciaExpediente);
+
 
 var validadorExp = new ValidadorExpediente();
 var validadorTram = new ValidadorTramite();

@@ -1,11 +1,11 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultarPorId(ITramiteRepositorio repoT,IExpedienteRepositorio repoE)
+public class CasoDeUsoExpedienteConsultarPorId(IContextDB context)
 {
     public Expediente Ejecutar(int expedienteId)
     {
-        Expediente expediente = repoE.ConsultaPorId(expedienteId); 
-        expediente.listaTramites=repoT.ConsultaPorIdExpediente(expedienteId);
+        Expediente expediente = context.ConsultaPorId(expedienteId); 
+        expediente.listaTramites=context.ConsultaPorIdExpediente(expedienteId);
         return expediente;
     }
 }
