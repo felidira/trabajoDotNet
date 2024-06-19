@@ -8,7 +8,7 @@ public class Expediente{
     public int ultModificacionID {get; set;}
     public EstadoExpediente estado {get; set;}
     public List<Tramite> listaTramites= new List<Tramite>();
-
+    public List<Tramite>? Tramite {get; set;}
 
     public Expediente(){
         //vacio

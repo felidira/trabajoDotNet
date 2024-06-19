@@ -14,4 +14,9 @@ public class SLGContext : DbContext{
         optionsBuilder.UseSqlite("data source=SLG.sqlite");
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Usuario>().HasNoKey();
+    }
+
 }

@@ -2,8 +2,5 @@
 using SLG.Aplicacion;
 using SLG.Repositorios;
 
-using var context = new SLGContext();
+SLGsqlite.Inicializar();
 
-context.Add(new Expediente("pene"));
-context.Add(new Tramite(1,"pijita"));
-context.SaveChanges(); 

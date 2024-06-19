@@ -37,7 +37,7 @@ public class SLGMetodos(SLGContext context) : IContextDB
 
     public List<Expediente> ConsultaTodos()
     {
-        
+        throw new NotImplementedException();
     }
 
     public void EliminarExpediente(Expediente expediente)
