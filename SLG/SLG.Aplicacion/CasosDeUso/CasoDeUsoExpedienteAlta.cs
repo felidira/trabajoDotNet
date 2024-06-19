@@ -13,7 +13,7 @@ public class CasoDeUsoExpedienteAlta(IContextDB context,ValidadorID VID, Servici
                     expediente.fechaCreacion=DateTime.Now;
                     expediente.ultModificacion=expediente.fechaCreacion;
                     expediente.ultModificacionID=idUsuario;
-                    context.AgregarExpediente(expediente,true);
+                    context.AgregarExpediente(expediente);
                 } else throw new ValidacionException();
             } else throw new AutorizacionException();
         } else throw new Exception("id de usuario no valido");

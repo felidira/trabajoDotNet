@@ -2,12 +2,12 @@ namespace SLG.Aplicacion;
 
 public interface IContextDB
 {
-    void AgregarExpediente(Expediente expediente,bool secuencia);
+    void AgregarExpediente(Expediente expediente);
     void EliminarExpediente(Expediente expediente);
     void ModificarExpediente(Expediente expediente);
     Expediente ConsultaPorId(int expedienteId);
     List<Expediente> ConsultaTodos();
-    void AgregarTramite(Tramite tramite,bool secuencia);
+    void AgregarTramite(Tramite tramite);
     void EliminarTramite(Tramite tramite);
     void ModificarTramite(Tramite tramite);
     List<Tramite> ConsultaPorIdExpediente(int idExpediente);

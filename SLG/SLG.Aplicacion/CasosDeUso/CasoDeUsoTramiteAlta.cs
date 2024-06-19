@@ -11,7 +11,7 @@ public class CasoDeUsoTramiteAlta(IContextDB context,ValidadorID VID,ServicioAut
           tramite.fechaCreacion=DateTime.Now;
           tramite.ultModificacion=tramite.fechaCreacion;
           tramite.ultModificacionID=idUsuario;
-          context.AgregarTramite(tramite,true);
+          context.AgregarTramite(tramite);
           Expediente e = context.ConsultaPorId(tramite.ExpedienteId);
           e.listaTramites=context.ConsultaPorIdExpediente(e.id);
           actualizacion.actualizar(e);

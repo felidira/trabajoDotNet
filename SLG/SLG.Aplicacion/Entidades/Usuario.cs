@@ -7,4 +7,6 @@ public class Usuario{
     public string Contraseña { get; set;}
     public List<Permiso> permisos; 
 
+    
+
 }
