@@ -4,7 +4,7 @@ public class CasoDeUsoExpedienteModificar(IMetodosDB metodos,ValidadorExpediente
 {
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
-        if (autorizacion.PoseeElPermiso(idUsuario)){
+        if (autorizacion.PoseeElPermiso(metodos.BuscarUsuario(idUsuario).permisos, Permiso.ExpedienteModificacion)){
             if (validador.ValidarExp(expediente)) {
                 expediente.ultModificacion=DateTime.Now;
                 expediente.ultModificacionID=idUsuario;
