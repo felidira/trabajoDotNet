@@ -66,7 +66,7 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
 
     public void EliminarTramite(Tramite tramite)
     {
-        var aux = context.Tramites.Where(t => t.id == tramite.id);
+        var aux = context.Tramites.Where(t => t.id == tramite.id).SingleOrDefault();
         if (aux != null){
             context.Remove(aux);
         } else throw new RepositorioException();
@@ -122,5 +122,21 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
             usuario.permisos=final;                    //salvo los nuevos permisos del usuario
             context.SaveChanges();                     //si no encuentra el permiso a eliminar, no hace NADA.
         }
+    }
+
+    public bool ValidarCorreo(Usuario usuario)
+    {
+        return context.Usuarios.SingleOrDefault(u => u.Correo.Equals(usuario.Correo)) != null;
+    }
+
+    public void AgregarUsuario(Usuario usuario)
+    {
+        context.Usuarios.Add(usuario);
+        context.SaveChanges();
+    }
+
+    public bool ComprobarUsuario(Usuario usuario)
+    {
+        return context.Usuarios.SingleOrDefault(u => u.Correo.Equals(usuario.Correo) && u.Contrasenia.Equals(usuario.Contrasenia)) != null;
     }
 }

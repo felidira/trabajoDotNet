@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLG.Aplicacion", "SLG.Aplic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLG.Repositorios", "SLG.Repositorios\SLG.Repositorios.csproj", "{8887507C-7247-4D5C-9C1E-8611FA7F2DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLG.Consola", "SLG.Consola\SLG.Consola.csproj", "{3E314B4F-0F49-4CB7-A2B0-8504BC154A7E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLG.UI", "SLG.UI\SLG.UI.csproj", "{B38EF8CC-E392-4B14-A43C-260E31307E97}"
 EndProject
 Global
