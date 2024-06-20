@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {}
+    "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\SLG.UI.csproj": {}
   },
   "projects": {
     "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
@@ -122,6 +122,74 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\SLG.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\SLG.UI.csproj",
+        "projectName": "SLG.UI",
+        "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\SLG.UI.csproj",
+        "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj"
+              },
+              "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {
+                "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

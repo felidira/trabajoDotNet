@@ -492,6 +492,20 @@
         "runtime": {
           "bin/placeholder/SLG.Aplicacion.dll": {}
         }
+      },
+      "SLG.Repositorios/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Sqlite": "8.0.6",
+          "SLG.Aplicacion": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SLG.Repositorios.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SLG.Repositorios.dll": {}
+        }
       }
     }
   },
@@ -1193,12 +1207,17 @@
       "type": "project",
       "path": "../SLG.Aplicacion/SLG.Aplicacion.csproj",
       "msbuildProject": "../SLG.Aplicacion/SLG.Aplicacion.csproj"
+    },
+    "SLG.Repositorios/1.0.0": {
+      "type": "project",
+      "path": "../SLG.Repositorios/SLG.Repositorios.csproj",
+      "msbuildProject": "../SLG.Repositorios/SLG.Repositorios.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.6",
-      "SLG.Aplicacion >= 1.0.0"
+      "SLG.Aplicacion >= 1.0.0",
+      "SLG.Repositorios >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1207,11 +1226,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj",
-      "projectName": "SLG.Repositorios",
-      "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj",
+      "projectUniqueName": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\SLG.UI.csproj",
+      "projectName": "SLG.UI",
+      "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\SLG.UI.csproj",
       "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\obj\\",
+      "outputPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1228,6 +1247,9 @@
           "projectReferences": {
             "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj": {
               "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Aplicacion\\SLG.Aplicacion.csproj"
+            },
+            "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\Tomas\\Desktop\\tp\\SLG\\SLG.Repositorios\\SLG.Repositorios.csproj"
             }
           }
         }
@@ -1246,12 +1268,6 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite": {
-            "target": "Package",
-            "version": "[8.0.6, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -1264,6 +1280,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
