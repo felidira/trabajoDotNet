@@ -18,4 +18,6 @@ public interface IMetodosDB
     bool ValidarCorreo(Usuario usuario);
     void AgregarUsuario(Usuario usuario);
     bool ComprobarUsuario(Usuario usuario);
+    void ModificarUsuario(Usuario usuario);
+    Usuario BuscarUsuario(Usuario usuario);
 }
