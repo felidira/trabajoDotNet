@@ -8,18 +8,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddSingleton<Usuario>();
 
-builder.Services.AddSingleton<SLGContext>();
+builder.Services.AddScoped<SLGContext>();
 builder.Services.AddScoped<IMetodosDB,SLGMetodos>();
+builder.Services.AddTransient<EspecificacionCambioDeEstado>();
+builder.Services.AddTransient<ServicioActualizacionDeEstado>();
+builder.Services.AddTransient<ValidadorID>();
 builder.Services.AddTransient<CasoDeUsoExpedienteAlta>();
+builder.Services.AddTransient<ServicioAutorizacion>();
 builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConsultarPorId>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConsultarTodos>();
+builder.Services.AddTransient<ValidadorExpediente>();
 builder.Services.AddTransient<CasoDeUsoExpedienteModificar>();
+builder.Services.AddTransient<ValidadorTramite>();
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
 builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
 builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorEtiqueta>();
 builder.Services.AddTransient<CasoDeUsoTramiteModificar>();
+builder.Services.AddTransient<ValidadorUsuario>();
+builder.Services.AddTransient<CasoDeUsoUsuarioBuscar>();
 builder.Services.AddTransient<CasoDeUsoUsuarioAgregarPermiso>();
 builder.Services.AddTransient<CasoDeUsoUsuarioAgregarUsuario>();
 builder.Services.AddTransient<CasoDeUsoUsuarioEliminarPermiso>();

@@ -1,0 +1,28 @@
+﻿@page "/Panel"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Panel de usuario</h1>
+@if (uLoggeado !=null){
+<h1>usuario: @uLoggeado.Correo</h1>
+}
+@inject Usuario? users
+@code {
+    public Usuario? uLoggeado {get; set;}
+    
+    protected override void OnInitialized()
+    {
+        uLoggeado = user;
+        if (uLoggeado!=null){
+        Console.WriteLine("uloggeado= "+uLoggeado.id);
+        }
+    }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

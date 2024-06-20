@@ -17,7 +17,7 @@
     <button @onclick="IniciarSesion">Confirmar</button>
     @if (PopUpException && CamposDeInicioSesion){
         <PopUpException @ref=Exception Mensaje="El correo ingresado no existe" />
-    }
+    } 
 }
 @if (CamposDeRegistro){
     <div>
@@ -29,15 +29,16 @@
     <button @onclick="AgregarUsuario">Registrarse</button>
 
     @if (PopUpException && CamposDeRegistro){
-        <PopUpException @ref=Exception Mensaje="El correo ingresado ya está en uso" />
+        <PopUpException @ref=Exception Mensaje="El correo ingresado está en uso" />
     }
 }
 
 @inject CasoDeUsoUsuarioAgregarUsuario AgregarUsuarioUseCase
 @inject CasoDeUsoUsuarioIniciarSesion IniciarSesionUseCase
+@inject CasoDeUsoUsuarioBuscar BuscarUsuarioUseCase
+@inject NavigationManager Navegador
+@inject Usuario? user
 @code {
-    SLGMetodos metodos;
-
     public bool CamposDeInicioSesion {get; set;} = false;
     public bool CamposDeRegistro {get; set;} = false;
     public bool PopUpException {get; set;} = false;
@@ -45,26 +46,35 @@
     Usuario u=new Usuario();
 
     PopUpException Exception= null!;
-    public void AgregarUsuario(){
+    public async Task AgregarUsuario(){
         try
         {
             AgregarUsuarioUseCase.Ejecutar(u);
         }
         catch (Exception e)
         {
+            Exception=new PopUpException();
             PopUpException=true;
+            await Task.Delay(150);
             Exception.Mostrar();
         }
     }
 
-    public void IniciarSesion(){
+    public async Task IniciarSesion(){
         try
         {
-            IniciarSesionUseCase.Ejecutar(u);
+            if (IniciarSesionUseCase.Ejecutar(u)){
+                user=BuscarUsuarioUseCase.Ejecutar(u);
+                Console.WriteLine("user= "+user.id);
+                await Task.Delay(300);
+                Navegador.NavigateTo("/Panel");
+            }
         }
         catch (Exception e)
         {
+            Exception=new PopUpException();
             PopUpException=true;
+            await Task.Delay(150);
             Exception.Mostrar();
         }
     }

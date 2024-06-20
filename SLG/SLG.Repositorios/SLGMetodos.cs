@@ -77,7 +77,9 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
     {
         var aux = context.Expedientes.Where(e => e.id == expediente.id).SingleOrDefault();
         if (aux != null){
-            aux = expediente;
+            aux.caratula=expediente.caratula;
+            aux.ultModificacionID=expediente.ultModificacionID;
+            aux.ultModificacion=expediente.ultModificacion;
         } else throw new RepositorioException();
         context.SaveChanges();
     }
@@ -86,7 +88,10 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
     {
         var aux = context.Tramites.Where(t => t.id == tramite.id).SingleOrDefault();
         if (aux != null){
-            aux = tramite;
+            aux.tipoTramite = tramite.tipoTramite;
+            aux.contenido = tramite.contenido;
+            aux.ultModificacion= tramite.ultModificacion;
+            aux.ultModificacionID = tramite.ultModificacionID;
         } else throw new RepositorioException();
         context.SaveChanges();
     }
@@ -138,5 +143,22 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
     public bool ComprobarUsuario(Usuario usuario)
     {
         return context.Usuarios.SingleOrDefault(u => u.Correo.Equals(usuario.Correo) && u.Contrasenia.Equals(usuario.Contrasenia)) != null;
+    }
+    public void ModificarUsuario(Usuario usuario){
+        var u= context.Usuarios.SingleOrDefault(u => u.id==usuario.id);
+        //se asume que existe porque se llama desde el panel del usuario que ya tiene el usuario cargado con su ID.
+        if (u != null){
+            u.Apellido=usuario.Apellido;
+            u.Correo=usuario.Correo;
+            u.Contrasenia=usuario.Contrasenia;
+            u.Nombre=usuario.Nombre;
+        }
+        context.SaveChanges();
+    }
+
+    public Usuario BuscarUsuario(Usuario usuario){
+        var u = context.Usuarios.SingleOrDefault(u => u.Correo.Equals(usuario.Correo));
+        if (u ==null) throw new RepositorioException();
+        return u;
     }
 }
