@@ -1,12 +1,80 @@
 ﻿@page "/"
 
+@rendermode InteractiveServer
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Bienvenidx al Sistema de Gestion de Expedientes</h1>
+<div class=botonesInicio>
+    <button @onclick="mostrarInicioSesion">Iniciar Sesión</button>
+    <button @onclick="mostrarRegistrarse">Registrarse</button>
+</div>
 
-Welcome to your new app.
+@if (CamposDeInicioSesion){
+    <div>
+        <input placeholder="Correo" @bind="u.Correo"/><br>
+        <input placeholder="Contraseña" @bind="u.Contrasenia"/><br>
+    </div>
+    <button @onclick="IniciarSesion">Confirmar</button>
+    @if (PopUpException && CamposDeInicioSesion){
+        <PopUpException @ref=Exception Mensaje="El correo ingresado no existe" />
+    }
+}
+@if (CamposDeRegistro){
+    <div>
+        <input placeholder="Nombre" @bind="u.Nombre"/><br>
+        <input placeholder="Apellido" @bind="u.Apellido"/><br>
+        <input placeholder="Correo" @bind="u.Correo"/><br>
+        <input placeholder="Contraseña" @bind="u.Contrasenia"/><br>
+    </div>
+    <button @onclick="AgregarUsuario">Registrarse</button>
 
+    @if (PopUpException && CamposDeRegistro){
+        <PopUpException @ref=Exception Mensaje="El correo ingresado ya está en uso" />
+    }
+}
+
+@inject CasoDeUsoUsuarioAgregarUsuario AgregarUsuarioUseCase
+@inject CasoDeUsoUsuarioIniciarSesion IniciarSesionUseCase
 @code {
-    
-    -
+    SLGMetodos metodos;
+
+    public bool CamposDeInicioSesion {get; set;} = false;
+    public bool CamposDeRegistro {get; set;} = false;
+    public bool PopUpException {get; set;} = false;
+
+    Usuario u=new Usuario();
+
+    PopUpException Exception= null!;
+    public void AgregarUsuario(){
+        try
+        {
+            AgregarUsuarioUseCase.Ejecutar(u);
+        }
+        catch (Exception e)
+        {
+            PopUpException=true;
+            Exception.Mostrar();
+        }
+    }
+
+    public void IniciarSesion(){
+        try
+        {
+            IniciarSesionUseCase.Ejecutar(u);
+        }
+        catch (Exception e)
+        {
+            PopUpException=true;
+            Exception.Mostrar();
+        }
+    }
+
+    public void mostrarInicioSesion(){
+        CamposDeRegistro=false;
+        CamposDeInicioSesion=true;
+    }
+    public void mostrarRegistrarse(){
+        CamposDeInicioSesion=false;
+        CamposDeRegistro=true;
+    }
 }

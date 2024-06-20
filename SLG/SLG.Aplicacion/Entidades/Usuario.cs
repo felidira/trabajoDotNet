@@ -8,6 +8,14 @@ public class Usuario{
     public string Contrasenia { get; set;}
     public string permisos; 
 
+    public Usuario(){
+        Nombre="";
+        Apellido="";
+        Correo="";
+        Contrasenia="";
+        permisos="";
+    }
+
     public Usuario(string nombre, string apellido, string correo, string contrasenia)
     {
         Apellido=apellido;
