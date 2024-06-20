@@ -1,5 +1,5 @@
 namespace SLG.Aplicacion;
-public class EspecificacionCambioDeEstado{
+public class EspecificacionCambioDeEstado {
 
     public EstadoExpediente especificar(Tramite tramite){
         EstadoExpediente devolver= 0;
