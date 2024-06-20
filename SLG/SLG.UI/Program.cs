@@ -8,6 +8,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+
+builder.Services.AddSingleton<SLGContext>();
+builder.Services.AddScoped<IMetodosDB,SLGMetodos>();
+builder.Services.AddTransient<CasoDeUsoExpedienteAlta>();
+builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConsultarPorId>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConsultarTodos>();
+builder.Services.AddTransient<CasoDeUsoExpedienteModificar>();
+builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
+builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
+builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorEtiqueta>();
+builder.Services.AddTransient<CasoDeUsoTramiteModificar>();
+builder.Services.AddTransient<CasoDeUsoUsuarioAgregarPermiso>();
+builder.Services.AddTransient<CasoDeUsoUsuarioAgregarUsuario>();
+builder.Services.AddTransient<CasoDeUsoUsuarioEliminarPermiso>();
+builder.Services.AddTransient<CasoDeUsoUsuarioIniciarSesion>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,4 +40,8 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
+
+
+
+
 
