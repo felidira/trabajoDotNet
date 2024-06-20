@@ -15,4 +15,7 @@ public interface IMetodosDB
     Usuario BuscarUsuario(int id);
     void AgregarPermiso(int idUsuario, Permiso Aagregar);
     void EliminarPermiso(int idUsuario, Permiso Aeliminar);
+    bool ValidarCorreo(Usuario usuario);
+    void AgregarUsuario(Usuario usuario);
+    bool ComprobarUsuario(Usuario usuario);
 }

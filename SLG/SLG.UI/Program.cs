@@ -1,3 +1,5 @@
+using SLG.Repositorios;
+using SLG.Aplicacion;
 using SLG.UI.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,3 +23,4 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
+
