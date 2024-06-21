@@ -11,11 +11,21 @@ public class CasoDeUsoUsuarioIniciarSesion(IMetodosDB metodos,ValidadorUsuario v
             Encoding enc = Encoding.UTF8;
             using (SHA256 hasher = SHA256.Create()){
                 byte[] aux = enc.GetBytes(usuario.Contrasenia);
-                usuario.Contrasenia= Convert.ToBase64String(hasher.ComputeHash(aux));
+                string hashedpw= Convert.ToBase64String(hasher.ComputeHash(aux));
+                Usuario nue = new Usuario()
+                {
+                    Contrasenia = hashedpw,
+                    Correo = usuario.Correo,
+                    Nombre = usuario.Nombre,
+                    Apellido = usuario.Apellido,
+                    id = usuario.id,
+                    permisos = usuario.permisos
+                };
+                if (metodos.ComprobarUsuario(nue))
+                    r=true;
+                else throw new Exception("Los datos ingresados no son correctos");
             }
-            if (metodos.ComprobarUsuario(usuario))
-                r=true; // existe un usuario con el mismo correo y contraseña
-        } else throw new Exception("el correo ingresado no existe.");
+        } else throw new Exception("El correo ingresado no existe.");
         return r;
     }
 }

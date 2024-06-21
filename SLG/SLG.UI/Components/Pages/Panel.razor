@@ -1,28 +1,25 @@
-﻿@page "/Panel"
+@page "/panel"
 @rendermode InteractiveServer
 
-<PageTitle>Counter</PageTitle>
 
-<h1>Panel de usuario</h1>
-@if (uLoggeado !=null){
-<h1>usuario: @uLoggeado.Correo</h1>
-}
-@inject Usuario? users
+@inject NavigationManager navegador
+
+<PageTitle>Panel de Usuario</PageTitle>
+
+<h3>
+<button class="btn btn-primary" @onclick= "iraTramite" > ir a Tramites</button>
+</h3>
+
+<h3>
+<button class="btn btn-primary" @onclick= "iraExpediente" > ir a Expedientes</button>
+</h3>
+
+
 @code {
-    public Usuario? uLoggeado {get; set;}
-    
-    protected override void OnInitialized()
-    {
-        uLoggeado = user;
-        if (uLoggeado!=null){
-        Console.WriteLine("uloggeado= "+uLoggeado.id);
-        }
+    private void iraExpediente(){
+        navegador.NavigateTo("/expedientes");
     }
-
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
+    private void iraTramite(){
+        navegador.NavigateTo("/tramites");
     }
 }

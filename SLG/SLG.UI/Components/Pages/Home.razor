@@ -16,7 +16,7 @@
     </div>
     <button @onclick="IniciarSesion">Confirmar</button>
     @if (PopUpException && CamposDeInicioSesion){
-        <PopUpException @ref=Exception Mensaje="El correo ingresado no existe" />
+        <PopUpException @ref=Exception Mensaje="@men" />
     } 
 }
 @if (CamposDeRegistro){
@@ -29,7 +29,7 @@
     <button @onclick="AgregarUsuario">Registrarse</button>
 
     @if (PopUpException && CamposDeRegistro){
-        <PopUpException @ref=Exception Mensaje="El correo ingresado está en uso" />
+        <PopUpException @ref=Exception Mensaje="@men" />
     }
 }
 
@@ -37,15 +37,16 @@
 @inject CasoDeUsoUsuarioIniciarSesion IniciarSesionUseCase
 @inject CasoDeUsoUsuarioBuscar BuscarUsuarioUseCase
 @inject NavigationManager Navegador
-@inject Usuario? user
+@inject IServicioSesion user
 @code {
     public bool CamposDeInicioSesion {get; set;} = false;
     public bool CamposDeRegistro {get; set;} = false;
     public bool PopUpException {get; set;} = false;
+    public string men {get; set;} ="";
 
     Usuario u=new Usuario();
 
-    PopUpException Exception= null!;
+    PopUpException? Exception;
     public async Task AgregarUsuario(){
         try
         {
@@ -53,6 +54,8 @@
         }
         catch (Exception e)
         {
+            men=e.Message;
+            Console.WriteLine(men);
             Exception=new PopUpException();
             PopUpException=true;
             await Task.Delay(150);
@@ -64,18 +67,19 @@
         try
         {
             if (IniciarSesionUseCase.Ejecutar(u)){
-                user=BuscarUsuarioUseCase.Ejecutar(u);
-                Console.WriteLine("user= "+user.id);
+                user.usuarioLoggeado=BuscarUsuarioUseCase.Ejecutar(u);
+                Console.WriteLine("/: userloggeado= "+user.usuarioLoggeado.id);
                 await Task.Delay(300);
-                Navegador.NavigateTo("/Panel");
+                Navegador.NavigateTo("/panel");
             }
         }
         catch (Exception e)
         {
-            Exception=new PopUpException();
+            men=e.Message;
+            Console.WriteLine(men);
             PopUpException=true;
             await Task.Delay(150);
-            Exception.Mostrar();
+            Exception?.Mostrar();
         }
     }
 
