@@ -11,9 +11,18 @@ public class CasoDeUsoUsuarioAgregarUsuario(IMetodosDB metodos,ValidadorUsuario 
             Encoding enc = Encoding.UTF8;
             using (SHA256 hasher = SHA256.Create()){
                 byte[] aux = enc.GetBytes(usuario.Contrasenia);
-                usuario.Contrasenia= Convert.ToBase64String(hasher.ComputeHash(aux));
+                string hashedpw= Convert.ToBase64String(hasher.ComputeHash(aux));
+                Usuario nue = new Usuario()
+                {
+                    Contrasenia = hashedpw,
+                    Correo = usuario.Correo,
+                    Nombre = usuario.Nombre,
+                    Apellido = usuario.Apellido,
+                    id = usuario.id,
+                    permisos = usuario.permisos
+                };
+                metodos.AgregarUsuario(nue);
             }
-            metodos.AgregarUsuario(usuario);
         } else throw new Exception("el correo ya está utilizado");
     }
 }

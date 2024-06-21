@@ -1,0 +1,59 @@
+﻿@page "/tramites"
+@rendermode InteractiveServer
+
+@inject NavigationManager navegador
+@inject CasoDeUsoTramiteListar ListarTramiteUseCase
+
+<PageTitle>Tramites</PageTitle>
+
+<h1>Tramites</h1>
+
+<h3>
+<button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
+<button class="btn btn-secondary" @onclick= "AgregarTramite" > Agregar Tramite</button>
+</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Expediente</th>
+            <th>CONTENIDO</th>
+            <th>FECHA DE CREACIÓN</th>
+            <th>ULT MODIFICACIÓN</th>
+            <th>ID MODIFICACIÓN</th>
+            <th>TIPO</th>
+            <th>ACCIÓN</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in ListarTramiteUseCase.Ejecutar())
+        {
+            <tr>
+                <td>@t.id</td>
+                <td>@t.ExpedienteId</td>
+                <td>@t.contenido</td>
+                <td>@t.fechaCreacion</td>
+                <td>@t.ultModificacion</td>
+                <td>@t.ultModificacionID</td>
+                <td>@t.tipoTramite</td>
+                <td>
+                    <button class="btn btn-primary">Editar</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@inject CasoDeUsoTramiteAlta TramiteAltaUseCase
+@inject IServicioSesion user
+@code{
+
+    Tramite t
+    public void AgregarTramite(){
+        TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t);
+    }
+    public void irPanel(){
+        navegador.NavigateTo("/panel");
+    }
+}

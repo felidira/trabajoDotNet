@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<Usuario>();
+builder.Services.AddSingleton<IServicioSesion,ServicioSesion>();
 
 builder.Services.AddScoped<SLGContext>();
 builder.Services.AddScoped<IMetodosDB,SLGMetodos>();
@@ -22,6 +22,7 @@ builder.Services.AddTransient<CasoDeUsoExpedienteConsultarPorId>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConsultarTodos>();
 builder.Services.AddTransient<ValidadorExpediente>();
 builder.Services.AddTransient<CasoDeUsoExpedienteModificar>();
+builder.Services.AddTransient<CasoDeUsoTramiteListar>();
 builder.Services.AddTransient<ValidadorTramite>();
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
 builder.Services.AddTransient<CasoDeUsoTramiteBaja>();

@@ -161,4 +161,15 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
         if (u ==null) throw new RepositorioException();
         return u;
     }
+
+    public List<Tramite> ConsultaTodosTramite()
+    {
+        var aux = context.Tramites.Select(n => n)
+                .OrderBy(id => id.ExpedienteId)
+                .ToList();
+        if (aux == null){
+            throw new RepositorioException();
+        }
+        return aux;
+    }
 }

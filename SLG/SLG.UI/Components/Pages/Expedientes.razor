@@ -1,0 +1,60 @@
+﻿@page "/expedientes"
+@rendermode InteractiveServer
+@inject NavigationManager navegador
+
+@inject CasoDeUsoExpedienteConsultarTodos ListarExpedientesUseCase
+
+<PageTitle>Lista</PageTitle>
+
+<h1>Expedientes</h1>
+<h3>
+<button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
+</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>CARÁTULA</th>
+            <th>FECHA DE CREACIÓN</th>
+            <th>ULT MODIFICACIÓN</th>
+            <th>ID MODIFICACIÓN</th>
+            <th>ESTADO</th>
+            <th>ACCIÓN</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exp in ListarExpedientesUseCase.Ejecutar())
+        {
+            <tr>
+                <td>@exp.id</td>
+                <td>@exp.caratula</td>
+                <td>@exp.fechaCreacion</td>
+                <td>@exp.ultModificacion</td>
+                <td>@exp.ultModificacionID</td>
+                <td>@exp.estado</td>
+                <td>
+                    <button class="btn btn-primary">Editar</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+@inject IServicioSesion user
+@code {
+    public Usuario? uLoggeado {get; set;}
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("/expedientes: user= "+ user.usuarioLoggeado?.id);
+        uLoggeado = user.usuarioLoggeado;
+        if (uLoggeado!=null){
+        Console.WriteLine("/expedientes uloggeado= "+uLoggeado.id);
+        }
+    }
+        public void irPanel(){
+        navegador.NavigateTo("/panel");
+    }
+}
