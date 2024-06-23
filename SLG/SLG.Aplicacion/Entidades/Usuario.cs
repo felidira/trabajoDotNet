@@ -6,7 +6,7 @@ public class Usuario{
     public string Apellido { get; set;}
     public string Correo { get; set;}
     public string Contrasenia { get; set;}
-    public string permisos; 
+    public string permisos {get; set;}
 
     public Usuario(){
         Nombre="";

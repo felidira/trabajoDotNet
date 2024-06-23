@@ -29,11 +29,15 @@ builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
 builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorEtiqueta>();
 builder.Services.AddTransient<CasoDeUsoTramiteModificar>();
 builder.Services.AddTransient<ValidadorUsuario>();
+builder.Services.AddTransient<CasoDeUsoUsuarioListar>();
 builder.Services.AddTransient<CasoDeUsoUsuarioBuscar>();
 builder.Services.AddTransient<CasoDeUsoUsuarioAgregarPermiso>();
 builder.Services.AddTransient<CasoDeUsoUsuarioAgregarUsuario>();
 builder.Services.AddTransient<CasoDeUsoUsuarioEliminarPermiso>();
 builder.Services.AddTransient<CasoDeUsoUsuarioIniciarSesion>();
+builder.Services.AddTransient<CasoDeUsoUsuarioModificar>();
+
+SLGsqlite.Inicializar();
 
 var app = builder.Build();
 

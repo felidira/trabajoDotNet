@@ -1,9 +1,9 @@
 @page "/panel"
 @rendermode InteractiveServer
 
-
+@inject CasoDeUsoUsuarioListar ListarUserUseCase
 @inject NavigationManager navegador
-
+@inject IServicioSesion user
 <PageTitle>Panel de Usuario</PageTitle>
 
 <h3>
@@ -14,12 +14,116 @@
 <button class="btn btn-primary" @onclick= "iraExpediente" > ir a Expedientes</button>
 </h3>
 
+<h3>
+<button class="btn btn-primary" @onclick= "EditarDatos" > Editar Mis Datos</button>
+</h3>
+@if (mostrar) {
+        <p>Completar todos los campos para el correcto funcionamiento.</p>
+        <input placeholder="Nombre" @bind="u.Nombre" class="form-control">
+        <input placeholder="Apellido" @bind="u.Apellido" class="form-control">
+        <input placeholder="Correo" @bind="u.Correo" class="form-control">
+        <input placeholder="Contrasenia" @bind="u.Contrasenia" class="form-control">
+        <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+        @if (PopUpException){
+            <PopUpException @ref=Exception Mensaje="@men" />
+        }
+    }
 
+<h1>Tus Datos</h1>
+<p>nombre= @user.usuarioLoggeado.Nombre <br> apellido= @user.usuarioLoggeado.Apellido <br> Correo=@user.usuarioLoggeado.Correo</p>
+
+@if (user != null && user.usuarioLoggeado.id == 1)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NONBRE</th>
+                <th>APELLIDO</th>
+                <th>CORREO</th>
+                <th>PERMISOS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in ListarUserUseCase.Ejecutar())
+            {
+                <tr>
+                    <td>@u.id</td>
+                    <td>@u.Nombre</td>
+                    <td>@u.Apellido</td>
+                    <td>@u.Correo</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="()=>MostrarAgregarPermiso(u)">Agregar</button>
+                        <button class="btn btn-danger" @onclick=MostsrarEliminarPermiso>Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (mostrarAP){
+        <h1>Ingrese alguno de los siguientes permisos: <br>ExpedienteAlta<br>ExpedienteBaja<br>ExpedienteModificacion<br>TramiteAlta<br>
+        TramiteBaja<br>TramiteModificacion</h1>
+        <input placeholder="Permiso" @bind="permisoAux" class="form-control">
+        <button class="btn btn-danger" @onclick="agregarPermiso">ConfirmarAgregar</button>
+    }
+}
+
+
+@inject CasoDeUsoUsuarioModificar ModificarUserUseCase
+@inject CasoDeUsoUsuarioAgregarPermiso agregarPermisoUseCase
 @code {
+    Usuario u = new Usuario();
+    PopUpException? Exception;
+    Usuario aux;
+    String permisoAux="";
+    bool PopUpException {get; set;} = false;
+    bool mostrar = false;
+    bool mostrarAP = false;
+    bool mostrarEP = false;
+    string men="";
+    async Task agregarPermiso(){
+        try {
+            agregarPermisoUseCase.Ejecutar(aux.id,(Permiso)Enum.Parse(typeof(Permiso),permisoAux));
+        }
+        catch (Exception e){
+            men=e.Message;
+            Console.WriteLine(men);
+            PopUpException=true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
+    }
+    void MostrarAgregarPermiso(Usuario u){
+        mostrarEP=false;
+        mostrarAP=true;
+        aux=u;
+    }
+    void MostrarEliminarPermiso(){
+        mostrarAP=true;
+        mostrarEP=false;
+    }
     private void iraExpediente(){
         navegador.NavigateTo("/expedientes");
     }
     private void iraTramite(){
         navegador.NavigateTo("/tramites");
+    }
+    void EditarDatos(){
+        mostrar = true;
+    }
+    async Task Aceptar(){
+        try{
+            u.id = user.usuarioLoggeado.id;
+            ModificarUserUseCase.Ejecutar(u);
+            mostrar = false;
+        }
+        catch (Exception e)
+        {
+            men=e.Message;
+            Console.WriteLine(men);
+            PopUpException=true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
     }
 }
