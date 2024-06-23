@@ -22,4 +22,5 @@ public interface IMetodosDB
     bool ComprobarUsuario(Usuario usuario);
     void ModificarUsuario(Usuario usuario);
     Usuario BuscarUsuario(Usuario usuario);
+    List<Usuario> ListarUsuarios();
 }

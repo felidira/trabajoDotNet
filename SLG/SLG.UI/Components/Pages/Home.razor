@@ -36,6 +36,7 @@
 @inject CasoDeUsoUsuarioAgregarUsuario AgregarUsuarioUseCase
 @inject CasoDeUsoUsuarioIniciarSesion IniciarSesionUseCase
 @inject CasoDeUsoUsuarioBuscar BuscarUsuarioUseCase
+@inject CasoDeUsoUsuarioAgregarPermiso AgregarPermisoUseCase
 @inject NavigationManager Navegador
 @inject IServicioSesion user
 @code {
@@ -51,6 +52,11 @@
         try
         {
             AgregarUsuarioUseCase.Ejecutar(u);
+            men="Se registró correctamente el usuario, ahora inicie sesión";
+            Exception=new PopUpException();
+            PopUpException=true;
+            await Task.Delay(150);
+            Exception.Mostrar();
         }
         catch (Exception e)
         {
@@ -68,6 +74,7 @@
         {
             if (IniciarSesionUseCase.Ejecutar(u)){
                 user.usuarioLoggeado=BuscarUsuarioUseCase.Ejecutar(u);
+                user.conectado=true;
                 Console.WriteLine("/: userloggeado= "+user.usuarioLoggeado.id);
                 await Task.Delay(300);
                 Navegador.NavigateTo("/panel");

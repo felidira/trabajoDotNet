@@ -10,8 +10,16 @@
 
 <h3>
 <button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
-<button class="btn btn-secondary" @onclick= "AgregarTramite" > Agregar Tramite</button>
+<button class="btn btn-secondary" @onclick= "MostrarAgregarTramite" > Agregar Tramite</button>
 </h3>
+@if (mostrarAT && user.usuarioLoggeado!=null) {
+    <input placeholder="contenido" @bind="t.contenido"/><br>
+    <input placeholder="idExpediente" @bind="t.ExpedienteId"/><br>
+    <button class="btn btn-primary" @onclick= "AgregarTramite" > Confirmar carga</button>
+    @if (PopUpException){
+        <PopUpException @ref=Exception Mensaje="@men" />
+    }
+}
 <table class="table">
     <thead>
         <tr>
@@ -49,9 +57,28 @@
 @inject IServicioSesion user
 @code{
 
-    Tramite t
-    public void AgregarTramite(){
-        TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t);
+    public bool PopUpException {get; set;} = false;
+    PopUpException? Exception;
+    bool mostrarAT {get; set;} = false;
+    Tramite t=new Tramite();
+    string men="";
+    public void MostrarAgregarTramite(){
+        mostrarAT=true;
+    }
+    public async Task AgregarTramite(){
+        try{
+            if (user!=null){
+                TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t);
+            }
+        }
+        catch (Exception e)
+        {
+            men=e.Message;
+            PopUpException=true;
+            Exception=new PopUpException();
+            await Task.Delay(150);
+            Exception.Mostrar();
+        }
     }
     public void irPanel(){
         navegador.NavigateTo("/panel");

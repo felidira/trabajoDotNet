@@ -3,58 +3,91 @@
 @inject NavigationManager navegador
 
 @inject CasoDeUsoExpedienteConsultarTodos ListarExpedientesUseCase
+@inject CasoDeUsoExpedienteAlta ExpedienteAltaUseCase
 
 <PageTitle>Lista</PageTitle>
 
 <h1>Expedientes</h1>
-<h3>
-<button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
-</h3>
+    <h3>
+    <button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
+    <button class="btn btn-secondary" @onclick= "AgregarExpediente" > Agregar Expediente</button>
+    </h3>
+    @if (mostrar) {
+        <input placeholder="Carátula" @bind="caratulaExp" class="form-control">
+        <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+        @if (PopUpException){
+            <PopUpException @ref=Exception Mensaje="@men" />
+        }
+    }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>CARÁTULA</th>
-            <th>FECHA DE CREACIÓN</th>
-            <th>ULT MODIFICACIÓN</th>
-            <th>ID MODIFICACIÓN</th>
-            <th>ESTADO</th>
-            <th>ACCIÓN</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var exp in ListarExpedientesUseCase.Ejecutar())
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@exp.id</td>
-                <td>@exp.caratula</td>
-                <td>@exp.fechaCreacion</td>
-                <td>@exp.ultModificacion</td>
-                <td>@exp.ultModificacionID</td>
-                <td>@exp.estado</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Eliminar</button>
-                </td>
+                <th>ID</th>
+                <th>CARÁTULA</th>
+                <th>FECHA DE CREACIÓN</th>
+                <th>ULT MODIFICACIÓN</th>
+                <th>ID MODIFICACIÓN</th>
+                <th>ESTADO</th>
+                <th>ACCIÓN</th>
             </tr>
-        }
-    </tbody>
-</table>
-}
-@inject IServicioSesion user
-@code {
-    public Usuario? uLoggeado {get; set;}
+        </thead>
+        <tbody>
+            @foreach (var exp in ListarExpedientesUseCase.Ejecutar())
+            {
+                <tr>
+                    <td>@exp.id</td>
+                    <td>@exp.caratula</td>
+                    <td>@exp.fechaCreacion</td>
+                    <td>@exp.ultModificacion</td>
+                    <td>@exp.ultModificacionID</td>
+                    <td>@exp.estado</td>
+                    <td>
+                        <button class="btn btn-primary">Editar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-    protected override void OnInitialized()
-    {
-        Console.WriteLine("/expedientes: user= "+ user.usuarioLoggeado?.id);
-        uLoggeado = user.usuarioLoggeado;
-        if (uLoggeado!=null){
-        Console.WriteLine("/expedientes uloggeado= "+uLoggeado.id);
+    @inject IServicioSesion user
+    @code {
+        public bool PopUpException {get; set;} = false;
+        public string men {get; set;} ="";
+        PopUpException? Exception;
+        String caratulaExp {get; set;} ="";
+        public Usuario? uLoggeado {get; set;}
+        bool mostrar = false;
+
+        protected override void OnInitialized()
+        {
+            Console.WriteLine("/expedientes: user= "+ user.usuarioLoggeado?.id);
+            uLoggeado = user.usuarioLoggeado;
+            if (uLoggeado!=null){
+            Console.WriteLine("/expedientes uloggeado= "+uLoggeado.id);
+            }
+        }
+            public void irPanel(){
+            navegador.NavigateTo("/panel");
+        }
+
+        private void AgregarExpediente(){  
+            mostrar = true;
+        }
+        async Task Aceptar(){
+            try{
+                if (user.usuarioLoggeado!=null){
+                ExpedienteAltaUseCase.Ejecutar(user.usuarioLoggeado.id, new Expediente(caratulaExp));
+                mostrar=false;
+                }
+            } catch (Exception e){
+                men = e.Message;
+                Console.WriteLine(men);
+                Exception=new PopUpException();
+                PopUpException=true;
+                await Task.Delay(300);
+                Exception.Mostrar();
+            }
         }
     }
-        public void irPanel(){
-        navegador.NavigateTo("/panel");
-    }
-}

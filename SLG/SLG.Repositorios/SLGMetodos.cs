@@ -108,7 +108,9 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
     {
         var usuario = context.Usuarios.Where(u => u.id == idUsuario).SingleOrDefault();
         if (usuario!=null){
+            Console.WriteLine(usuario.id+" está agregando permisos");
             usuario.permisos += Aagregar+",";
+            Console.WriteLine(usuario.permisos);
         } else throw new RepositorioException();
         context.SaveChanges();
     }
@@ -167,6 +169,16 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
         var aux = context.Tramites.Select(n => n)
                 .OrderBy(id => id.ExpedienteId)
                 .ToList();
+        if (aux == null){
+            throw new RepositorioException();
+        }
+        return aux;
+    }
+    public List<Usuario> ListarUsuarios()
+    {
+        var aux = context.Usuarios.Select(u => u).
+                    OrderBy(u => u.id).
+                    ToList();
         if (aux == null){
             throw new RepositorioException();
         }
