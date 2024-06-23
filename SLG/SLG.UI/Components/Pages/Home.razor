@@ -4,35 +4,39 @@
 <PageTitle>Home</PageTitle>
 
 <h1>Bienvenidx al Sistema de Gestion de Expedientes</h1>
-<div class=botonesInicio>
-    <button @onclick="mostrarInicioSesion">Iniciar Sesión</button>
-    <button @onclick="mostrarRegistrarse">Registrarse</button>
-</div>
-
-@if (CamposDeInicioSesion){
-    <div>
-        <input placeholder="Correo" @bind="u.Correo"/><br>
-        <input placeholder="Contraseña" @bind="u.Contrasenia"/><br>
+@if (!user.conectado){
+    <div class=botonesInicio>
+        <button @onclick="mostrarInicioSesion">Iniciar Sesión</button>
+        <button @onclick="mostrarRegistrarse">Registrarse</button>
     </div>
-    <button @onclick="IniciarSesion">Confirmar</button>
-    @if (PopUpException && CamposDeInicioSesion){
-        <PopUpException @ref=Exception Mensaje="@men" />
-    } 
-}
-@if (CamposDeRegistro){
-    <div>
-        <input placeholder="Nombre" @bind="u.Nombre"/><br>
-        <input placeholder="Apellido" @bind="u.Apellido"/><br>
-        <input placeholder="Correo" @bind="u.Correo"/><br>
-        <input placeholder="Contraseña" @bind="u.Contrasenia"/><br>
-    </div>
-    <button @onclick="AgregarUsuario">Registrarse</button>
 
-    @if (PopUpException && CamposDeRegistro){
-        <PopUpException @ref=Exception Mensaje="@men" />
+    @if (CamposDeInicioSesion){
+        <div>
+            <input placeholder="Correo" @bind="u.Correo"/><br>
+            <input placeholder="Contraseña" @bind="u.Contrasenia"/><br>
+        </div>
+        <button @onclick="IniciarSesion">Confirmar</button>
+        @if (PopUpException && CamposDeInicioSesion){
+            <PopUpException @ref=Exception Mensaje="@men" />
+        } 
     }
-}
+    @if (CamposDeRegistro){
+        <div>
+            <input placeholder="Nombre" @bind="u.Nombre"/><br>
+            <input placeholder="Apellido" @bind="u.Apellido"/><br>
+            <input placeholder="Correo" @bind="u.Correo"/><br>
+            <input placeholder="Contraseña" @bind="u.Contrasenia"/><br>
+        </div>
+        <button @onclick="AgregarUsuario">Registrarse</button>
 
+        @if (PopUpException && CamposDeRegistro){
+            <PopUpException @ref=Exception Mensaje="@men" />
+        }
+    }
+} else{
+    <h3>prueba cerrando sesión para registrar o iniciar sesión en otra cuenta.</h3>
+    <button @onclick="CerrarSesion">Cerrar Sesion</button>
+}
 @inject CasoDeUsoUsuarioAgregarUsuario AgregarUsuarioUseCase
 @inject CasoDeUsoUsuarioIniciarSesion IniciarSesionUseCase
 @inject CasoDeUsoUsuarioBuscar BuscarUsuarioUseCase
@@ -97,5 +101,9 @@
     public void mostrarRegistrarse(){
         CamposDeInicioSesion=false;
         CamposDeRegistro=true;
+    }
+    public void CerrarSesion(){
+        user.Logout();
+        Navegador.NavigateTo("/");
     }
 }
