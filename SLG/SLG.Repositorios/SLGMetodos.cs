@@ -108,9 +108,15 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
     {
         var usuario = context.Usuarios.Where(u => u.id == idUsuario).SingleOrDefault();
         if (usuario!=null){
-            Console.WriteLine(usuario.id+" está agregando permisos");
-            usuario.permisos += Aagregar+",";
-            Console.WriteLine(usuario.permisos);
+            var l= usuario.permisos.Split(",").ToList();
+            if (!l.Contains(Aagregar.ToString())){
+                Console.WriteLine(usuario.id+" está agregando permisos");
+                usuario.permisos += Aagregar.ToString()+",";
+                Console.WriteLine(usuario.permisos);
+            } else {
+                Console.WriteLine("el usuario intenta agregar un permiso que ya tiene");
+                throw new Exception("el usuario ya posee el permiso.");
+            }
         } else throw new RepositorioException();
         context.SaveChanges();
     }
@@ -167,7 +173,6 @@ public class SLGMetodos(SLGContext context) : IMetodosDB
     public List<Tramite> ConsultaTodosTramite()
     {
         var aux = context.Tramites.Select(n => n)
-                .OrderBy(id => id.ExpedienteId)
                 .ToList();
         if (aux == null){
             throw new RepositorioException();

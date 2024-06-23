@@ -6,7 +6,7 @@ public class ServicioAutorizacion : IServicioAutorizacion
         bool tiene = false;
         string[] aux = permisos.Split(',');
         foreach(string auxStr in aux){
-            if(auxStr.Equals(Aposeer)) tiene=true;
+            if(auxStr.Equals(Aposeer.ToString())) tiene=true;
         }
         return tiene;
     }

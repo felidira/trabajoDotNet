@@ -54,17 +54,25 @@
                     <td>@u.Correo</td>
                     <td>
                         <button class="btn btn-primary" @onclick="()=>MostrarAgregarPermiso(u)">Agregar</button>
-                        <button class="btn btn-danger" @onclick=MostsrarEliminarPermiso>Eliminar</button>
+                        <button class="btn btn-danger" @onclick="()=>MostrarEliminarPermiso(u)">Eliminar</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    @if (mostrarAP){
-        <h1>Ingrese alguno de los siguientes permisos: <br>ExpedienteAlta<br>ExpedienteBaja<br>ExpedienteModificacion<br>TramiteAlta<br>
-        TramiteBaja<br>TramiteModificacion</h1>
-        <input placeholder="Permiso" @bind="permisoAux" class="form-control">
-        <button class="btn btn-danger" @onclick="agregarPermiso">ConfirmarAgregar</button>
+     @if (mostrarAP)
+    {
+        <h1>Seleccione un permiso:</h1>
+        <select @bind="permisoAux" class="form-control">
+            @foreach (var permiso in PermisosDisponibles)
+            {
+                <option value="@permiso">@permiso</option>
+            }
+        </select>
+        <button class="btn btn-primary" @onclick="agregarPermiso">Confirmar Agregar</button>
+        @if (PopUpException){
+            <PopUpException @ref=Exception Mensaje="@men" />
+        }
     }
 }
 
@@ -81,9 +89,24 @@
     bool mostrarAP = false;
     bool mostrarEP = false;
     string men="";
+    List<string> PermisosDisponibles = new List<string>
+    {
+        "ExpedienteAlta",
+        "ExpedienteBaja",
+        "ExpedienteModificacion",
+        "TramiteAlta",
+        "TramiteBaja",
+        "TramiteModificacion"
+    };
     async Task agregarPermiso(){
         try {
+            Console.WriteLine(permisoAux);
             agregarPermisoUseCase.Ejecutar(aux.id,(Permiso)Enum.Parse(typeof(Permiso),permisoAux));
+            permisoAux="";
+            men="Se agregó correctamente el permiso.";
+            PopUpException=true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
         }
         catch (Exception e){
             men=e.Message;
@@ -98,9 +121,10 @@
         mostrarAP=true;
         aux=u;
     }
-    void MostrarEliminarPermiso(){
-        mostrarAP=true;
-        mostrarEP=false;
+    void MostrarEliminarPermiso(Usuario u){
+        mostrarAP=false;
+        mostrarEP=true;
+        aux=u;
     }
     private void iraExpediente(){
         navegador.NavigateTo("/expedientes");
