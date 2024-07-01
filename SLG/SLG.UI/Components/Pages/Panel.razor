@@ -7,27 +7,24 @@
 <PageTitle>Panel de Usuario</PageTitle>
 
 <h3>
-<button class="btn btn-primary" @onclick= "iraTramite" > ir a Tramites</button>
+    <button class="btn btn-primary" @onclick="iraTramite">Ir a Trámites</button>
+    <button class="btn btn-primary" @onclick="iraExpediente">Ir a Expedientes</button>
+    <button class="btn btn-primary" @onclick="EditarDatos">Editar Mis Datos</button>
 </h3>
 
-<h3>
-<button class="btn btn-primary" @onclick= "iraExpediente" > ir a Expedientes</button>
-</h3>
-
-<h3>
-<button class="btn btn-primary" @onclick= "EditarDatos" > Editar Mis Datos</button>
-</h3>
-@if (mostrar) {
-        <p>Completar todos los campos para el correcto funcionamiento.</p>
-        <input placeholder="Nombre" @bind="u.Nombre" class="form-control">
-        <input placeholder="Apellido" @bind="u.Apellido" class="form-control">
-        <input placeholder="Correo" @bind="u.Correo" class="form-control">
-        <input placeholder="Contrasenia" @bind="u.Contrasenia" class="form-control">
-        <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
-        @if (PopUpException){
-            <PopUpException @ref=Exception Mensaje="@men" />
-        }
+@if (mostrar)
+{
+    <p>Completar todos los campos para el correcto funcionamiento.</p>
+    <label>Nombre: </label><input placeholder="Nombre" @bind="u.Nombre" class="form-control-4"><br>
+    <label>Apellido: </label><input placeholder="Apellido" @bind="u.Apellido" class="form-control-4"><br>
+    <label>Correo: </label><input placeholder="Correo" @bind="u.Correo" class="form-control-4"><br>
+    <label>Contraseña: </label><input placeholder="Contrasenia" @bind="u.Contrasenia" class="form-control-4"><br>
+    <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+    @if (PopUpException)
+    {
+        <PopUpException @ref="Exception" Mensaje="@men" />
     }
+}
 
 <h1>Tus Datos</h1>
 <p>nombre= @user.usuarioLoggeado.Nombre <br> apellido= @user.usuarioLoggeado.Apellido <br> Correo=@user.usuarioLoggeado.Correo</p>
@@ -38,29 +35,30 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NONBRE</th>
+                <th>NOMBRE</th>
                 <th>APELLIDO</th>
                 <th>CORREO</th>
                 <th>PERMISOS</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var u in ListarUserUseCase.Ejecutar())
+            @foreach (var usuario in ListarUserUseCase.Ejecutar())
             {
                 <tr>
-                    <td>@u.id</td>
-                    <td>@u.Nombre</td>
-                    <td>@u.Apellido</td>
-                    <td>@u.Correo</td>
+                    <td>@usuario.id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Correo</td>
                     <td>
-                        <button class="btn btn-primary" @onclick="()=>MostrarAgregarPermiso(u)">Agregar</button>
-                        <button class="btn btn-danger" @onclick="()=>MostrarEliminarPermiso(u)">Eliminar</button>
+                        <button class="btn btn-primary" @onclick="() => MostrarAgregarPermiso(usuario)">Agregar</button>
+                        <button class="btn btn-danger" @onclick="() => MostrarEliminarPermiso(usuario)">Eliminar</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-     @if (mostrarAP)
+
+    @if (mostrarAP)
     {
         <h1>Seleccione un permiso:</h1>
         <select @bind="permisoAux" class="form-control">
@@ -70,25 +68,43 @@
             }
         </select>
         <button class="btn btn-primary" @onclick="agregarPermiso">Confirmar Agregar</button>
-        @if (PopUpException){
-            <PopUpException @ref=Exception Mensaje="@men" />
+        @if (PopUpException)
+        {
+            <PopUpException @ref="Exception" Mensaje="@men" />
+        }
+    }
+
+    @if (mostrarEP)
+    {
+        <h1>Seleccione un permiso:</h1>
+        <select @bind="permisoAux" class="form-control">
+            @foreach (var permiso in PermisosUsuarios)
+            {
+                <option value="@permiso">@permiso</option>
+            }
+        </select>
+        <button class="btn btn-danger" @onclick="() => eliminarPermiso(permisoAux)">Eliminar Permiso</button>
+        @if (PopUpException)
+        {
+            <PopUpException @ref="Exception" Mensaje="@men" />
         }
     }
 }
 
-
 @inject CasoDeUsoUsuarioModificar ModificarUserUseCase
 @inject CasoDeUsoUsuarioAgregarPermiso agregarPermisoUseCase
+@inject CasoDeUsoUsuarioListarPermisos ListarPermisosUseCase
+@inject CasoDeUsoUsuarioEliminarPermiso EliminarPermisoUseCase
 @code {
     Usuario u = new Usuario();
     PopUpException? Exception;
-    Usuario aux;
-    String permisoAux="";
-    bool PopUpException {get; set;} = false;
+    Usuario aux = new Usuario(); // no nullable
+    string permisoAux = "";
+    bool PopUpException { get; set; } = false;
     bool mostrar = false;
     bool mostrarAP = false;
     bool mostrarEP = false;
-    string men="";
+    string men = "";
     List<string> PermisosDisponibles = new List<string>
     {
         "ExpedienteAlta",
@@ -98,54 +114,96 @@
         "TramiteBaja",
         "TramiteModificacion"
     };
-    async Task agregarPermiso(){
-        try {
+
+    List<string> PermisosUsuarios = new List<string>(); 
+
+    async Task agregarPermiso()
+    {
+        try
+        {
             Console.WriteLine(permisoAux);
-            agregarPermisoUseCase.Ejecutar(aux.id,(Permiso)Enum.Parse(typeof(Permiso),permisoAux));
-            permisoAux="";
-            men="Se agregó correctamente el permiso.";
-            PopUpException=true;
+            agregarPermisoUseCase.Ejecutar(aux.id, (Permiso)Enum.Parse(typeof(Permiso), permisoAux));
+            permisoAux = "";
+            men = "Se agregó correctamente el permiso.";
+            PopUpException = true;
             await Task.Delay(150);
             Exception?.Mostrar();
         }
-        catch (Exception e){
-            men=e.Message;
+        catch (Exception e)
+        {
+            men = e.Message;
             Console.WriteLine(men);
-            PopUpException=true;
+            PopUpException = true;
             await Task.Delay(150);
             Exception?.Mostrar();
         }
     }
-    void MostrarAgregarPermiso(Usuario u){
-        mostrarEP=false;
-        mostrarAP=true;
-        aux=u;
+
+    async Task eliminarPermiso(string PermisoAux)
+    {
+        try
+        {
+            EliminarPermisoUseCase.Ejecutar(aux.id,(Permiso)Enum.Parse(typeof(Permiso),PermisoAux));
+            permisoAux = "";
+            men = "Se eliminó correctamente el permiso.";
+            PermisosUsuarios=ListarPermisosUseCase.Ejecutar(aux);
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
+        catch (Exception e)
+        {
+            men = e.Message;
+            Console.WriteLine(men);
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
     }
-    void MostrarEliminarPermiso(Usuario u){
-        mostrarAP=false;
-        mostrarEP=true;
-        aux=u;
+
+    void MostrarAgregarPermiso(Usuario usuario)
+    {
+        mostrarEP = false;
+        mostrarAP = true;
+        aux = usuario;
     }
-    private void iraExpediente(){
+
+    void MostrarEliminarPermiso(Usuario usuario)
+    {
+        mostrarAP = false;
+        mostrarEP = true;
+        aux = usuario;
+        PermisosUsuarios=ListarPermisosUseCase.Ejecutar(usuario);
+    }
+
+    private void iraExpediente()
+    {
         navegador.NavigateTo("/expedientes");
     }
-    private void iraTramite(){
+
+    private void iraTramite()
+    {
         navegador.NavigateTo("/tramites");
     }
-    void EditarDatos(){
+
+    void EditarDatos()
+    {
         mostrar = true;
     }
-    async Task Aceptar(){
-        try{
+
+    async Task Aceptar()
+    {
+        try
+        {
             u.id = user.usuarioLoggeado.id;
             ModificarUserUseCase.Ejecutar(u);
             mostrar = false;
         }
         catch (Exception e)
         {
-            men=e.Message;
+            men = e.Message;
             Console.WriteLine(men);
-            PopUpException=true;
+            PopUpException = true;
             await Task.Delay(150);
             Exception?.Mostrar();
         }

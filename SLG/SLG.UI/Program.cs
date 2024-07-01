@@ -20,6 +20,7 @@ builder.Services.AddTransient<ValidadorID>();
 builder.Services.AddTransient<CasoDeUsoExpedienteAlta>();
 builder.Services.AddTransient<ServicioAutorizacion>();
 builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
+builder.Services.AddTransient<CasoDeUsoUsuarioListarPermisos>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConsultarPorId>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConsultarTodos>();
 builder.Services.AddTransient<ValidadorExpediente>();

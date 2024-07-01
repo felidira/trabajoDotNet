@@ -38,7 +38,12 @@ public class UsuarioRepositorio(SLGContext context) : IUsuarioRepositorio {
             auxl.Remove(Aeliminar.ToString());         //eliminar el permiso con el .Remove
             string final="";                           //string para sobreescribir permisos del usuario
             foreach (string st in auxl){
-                final += st;                           //cargo el string con los permisos resultantes;
+                final += st+",";                           //cargo el string con los permisos resultantes;
+            }
+            if (string.IsNullOrWhiteSpace(final) || final.Replace(",", "").Length == 0) { 
+                Console.WriteLine(final); 
+                final="";
+                Console.WriteLine(final);
             }
             usuario.permisos=final;                    //salvo los nuevos permisos del usuario
             context.SaveChanges();                     //si no encuentra el permiso a eliminar, no hace NADA.
@@ -84,5 +89,11 @@ public class UsuarioRepositorio(SLGContext context) : IUsuarioRepositorio {
         public bool ValidarCorreo(Usuario usuario)
     {
         return context.Usuarios.SingleOrDefault(u => u.Correo.Equals(usuario.Correo)) != null;
+    }
+
+    public List<string> ListarPermisos(Usuario usuario)
+    {
+        string[] aux= usuario.permisos.Split(",");
+        return aux.ToList();
     }
 }
