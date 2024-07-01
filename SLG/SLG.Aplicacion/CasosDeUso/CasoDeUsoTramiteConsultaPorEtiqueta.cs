@@ -1,9 +1,9 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoTramiteConsultaPorEtiqueta(IMetodosDB metodos){
+public class CasoDeUsoTramiteConsultaPorEtiqueta(ITramiteRepositorio repoT){
 
     public List<Tramite> Ejecutar(EtiquetaTramite etiqueta)
     {
-        return metodos.ConsultaPorEtiqueta(etiqueta);
+        return repoT.ConsultaPorEtiqueta(etiqueta);
     }
 }

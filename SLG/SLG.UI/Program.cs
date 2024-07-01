@@ -11,7 +11,9 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<IServicioSesion,ServicioSesion>();
 
 builder.Services.AddScoped<SLGContext>();
-builder.Services.AddScoped<IMetodosDB,SLGMetodos>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+builder.Services.AddScoped<ITramiteRepositorio, TramiteRepositorio>();
+builder.Services.AddScoped<IExpedienteRepositorio, ExpedienteRepositorio>();
 builder.Services.AddTransient<EspecificacionCambioDeEstado>();
 builder.Services.AddTransient<ServicioActualizacionDeEstado>();
 builder.Services.AddTransient<ValidadorID>();

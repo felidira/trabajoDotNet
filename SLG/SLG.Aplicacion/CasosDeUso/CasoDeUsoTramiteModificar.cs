@@ -1,15 +1,15 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoTramiteModificar(IMetodosDB metodos,ValidadorTramite validador,ServicioAutorizacion autorizacion, ServicioActualizacionDeEstado actualizacion){
+public class CasoDeUsoTramiteModificar(IUsuarioRepositorio repoU, IExpedienteRepositorio repoE, ITramiteRepositorio repoT, ValidadorTramite validador,ServicioAutorizacion autorizacion, ServicioActualizacionDeEstado actualizacion){
 
     public void Ejecutar(int idUsuario,Tramite tramite)
     {
-        if (autorizacion.PoseeElPermiso(metodos.BuscarUsuario(idUsuario).permisos, Permiso.TramiteModificacion)) {
+        if (autorizacion.PoseeElPermiso(repoU.BuscarUsuario(idUsuario).permisos, Permiso.TramiteModificacion)) {
             if (validador.ValidarTramite(tramite)) {
                 tramite.ultModificacion=DateTime.Now;
                 tramite.ultModificacionID=idUsuario;
-                metodos.ModificarTramite(tramite);
-                Expediente e = metodos.ConsultaPorId(tramite.ExpedienteId);
+                repoT.ModificarTramite(tramite);
+                Expediente e = repoE.ConsultaPorId(tramite.ExpedienteId);
                 actualizacion.actualizar(e);
             } else throw new ValidacionException();
         } else throw new AutorizacionException();

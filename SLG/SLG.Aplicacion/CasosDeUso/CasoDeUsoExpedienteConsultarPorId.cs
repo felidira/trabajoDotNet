@@ -1,10 +1,10 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultarPorId(IMetodosDB metodos)
+public class CasoDeUsoExpedienteConsultarPorId(IExpedienteRepositorio repoE)
 {
     public Expediente Ejecutar(int expedienteId)
     {
-        Expediente expediente = metodos.ConsultaPorId(expedienteId); 
+        Expediente expediente = repoE.ConsultaPorId(expedienteId); 
         return expediente;
     }
 }

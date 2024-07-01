@@ -1,7 +1,7 @@
 namespace SLG.Aplicacion;
 
-public class ValidadorUsuario(IMetodosDB metodos){
+public class ValidadorUsuario(IUsuarioRepositorio repoU){
     public bool existe(Usuario usuario){
-        return metodos.ValidarCorreo(usuario); //verifica que no exista un usuario con el mismo correo
+        return repoU.ValidarCorreo(usuario); //verifica que no exista un usuario con el mismo correo
     }
 }

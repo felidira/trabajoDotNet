@@ -1,7 +1,7 @@
 using SLG.Aplicacion;
 
-public class CasoDeUsoUsuarioListar(IMetodosDB metodos){
+public class CasoDeUsoUsuarioListar(IUsuarioRepositorio repoU){
     public List<Usuario> Ejecutar(){
-        return metodos.ListarUsuarios();
+        return repoU.ListarUsuarios();
     }
 }

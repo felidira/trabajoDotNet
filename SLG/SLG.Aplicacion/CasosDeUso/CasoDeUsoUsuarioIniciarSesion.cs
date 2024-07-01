@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoUsuarioIniciarSesion(IMetodosDB metodos,ValidadorUsuario validadorCorreo)
+public class CasoDeUsoUsuarioIniciarSesion(IUsuarioRepositorio repoU,ValidadorUsuario validadorCorreo)
 {
     public bool Ejecutar(Usuario usuario){
         bool r=false;
@@ -21,7 +21,7 @@ public class CasoDeUsoUsuarioIniciarSesion(IMetodosDB metodos,ValidadorUsuario v
                     id = usuario.id,
                     permisos = usuario.permisos
                 };
-                if (metodos.ComprobarUsuario(nue))
+                if (repoU.ComprobarUsuario(nue))
                     r=true;
                 else throw new Exception("Los datos ingresados no son correctos");
             }

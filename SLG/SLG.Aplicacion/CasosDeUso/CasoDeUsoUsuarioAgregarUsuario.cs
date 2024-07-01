@@ -4,7 +4,7 @@ using System.Text;
 namespace SLG.Aplicacion;
 
 
-public class CasoDeUsoUsuarioAgregarUsuario(IMetodosDB metodos,ValidadorUsuario validador)
+public class CasoDeUsoUsuarioAgregarUsuario(IUsuarioRepositorio repoU,ValidadorUsuario validador)
 {
     public void Ejecutar(Usuario usuario){
         if (!validador.existe(usuario)){
@@ -21,10 +21,10 @@ public class CasoDeUsoUsuarioAgregarUsuario(IMetodosDB metodos,ValidadorUsuario 
                     id = usuario.id,
                     permisos = usuario.permisos
                 };
-                if (metodos.ListarUsuarios().Count() == 0){
+                if (repoU.ListarUsuarios().Count() == 0){
                     nue.permisos+="TramiteModificacion,ExpedienteModificacion,EspedienteBaja,ExpedienteAlta,TramiteAlta,TramiteBaja";
                 }
-                metodos.AgregarUsuario(nue);
+                repoU.AgregarUsuario(nue);
             }
         } else throw new Exception("el correo ya está utilizado");
     }

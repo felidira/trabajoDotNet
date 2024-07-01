@@ -3,7 +3,7 @@ using System.Text;
 
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoUsuarioModificar(IMetodosDB metodos){
+public class CasoDeUsoUsuarioModificar(IUsuarioRepositorio repoU){
     public void Ejecutar(Usuario usuario){
         Encoding enc = Encoding.UTF8;
         using (SHA256 hasher = SHA256.Create()){
@@ -11,6 +11,6 @@ public class CasoDeUsoUsuarioModificar(IMetodosDB metodos){
             string hashedpw= Convert.ToBase64String(hasher.ComputeHash(aux));
             usuario.Contrasenia=hashedpw;
         }
-        metodos.ModificarUsuario(usuario);
+        repoU.ModificarUsuario(usuario);
     }
 }
