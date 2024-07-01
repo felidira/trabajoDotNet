@@ -1,9 +1,9 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultarTodos(IMetodosDB metodos)
+public class CasoDeUsoExpedienteConsultarTodos(IExpedienteRepositorio repoE)
 {
     public List<Expediente> Ejecutar()
     {
-        return metodos.ConsultaTodos();
+        return repoE.ConsultaTodos();
     }
 }

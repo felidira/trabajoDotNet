@@ -1,7 +1,7 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoUsuarioBuscar(IMetodosDB metodos){
+public class CasoDeUsoUsuarioBuscar(IUsuarioRepositorio repoU){
     public Usuario Ejecutar(Usuario usuario){
-        return metodos.BuscarUsuario(usuario);
+        return repoU.BuscarUsuario(usuario);
     }
 }

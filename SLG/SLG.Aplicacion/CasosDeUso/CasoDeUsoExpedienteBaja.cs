@@ -1,10 +1,10 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoExpedienteBaja(IMetodosDB metodos, ServicioAutorizacion autorizacion){
+public class CasoDeUsoExpedienteBaja(IUsuarioRepositorio repoU, IExpedienteRepositorio repoE, ServicioAutorizacion autorizacion){
     public void Ejecutar(int idUsuario, Expediente expediente)
     {
-        if (autorizacion.PoseeElPermiso(metodos.BuscarUsuario(idUsuario).permisos, Permiso.ExpedienteBaja)){
-            metodos.EliminarExpediente(expediente);
+        if (autorizacion.PoseeElPermiso(repoU.BuscarUsuario(idUsuario).permisos, Permiso.ExpedienteBaja)){
+            repoE.EliminarExpediente(expediente);
         } else throw new AutorizacionException();
     }
 }

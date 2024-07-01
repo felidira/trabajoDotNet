@@ -1,8 +1,8 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoUsuarioAgregarPermiso(IMetodosDB metodos)
+public class CasoDeUsoUsuarioAgregarPermiso(IUsuarioRepositorio repoU)
 {
     public void Ejecutar(int idUsuario,Permiso Aagregar){
-        metodos.AgregarPermiso(idUsuario,Aagregar);
+        repoU.AgregarPermiso(idUsuario,Aagregar);
     }
 }

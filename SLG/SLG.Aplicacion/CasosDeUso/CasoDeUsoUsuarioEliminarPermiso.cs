@@ -1,8 +1,8 @@
 namespace SLG.Aplicacion;
 
-public class CasoDeUsoUsuarioEliminarPermiso(IMetodosDB metodos)
+public class CasoDeUsoUsuarioEliminarPermiso(IUsuarioRepositorio repoU)
 {
     public void Ejecutar(int idUsuario, Permiso aEliminar){
-        metodos.EliminarPermiso(idUsuario,aEliminar);
+        repoU.EliminarPermiso(idUsuario,aEliminar);
     }
 }

@@ -1,8 +1,8 @@
 using SLG.Aplicacion;
 
-public class CasoDeUsoTramiteListar (IMetodosDB metodos){
+public class CasoDeUsoTramiteListar (ITramiteRepositorio repoT){
     public List<Tramite> Ejecutar()
     {
-        return metodos.ConsultaTodosTramite();
+        return repoT.ConsultaTodosTramite();
     }
 }
