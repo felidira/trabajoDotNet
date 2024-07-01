@@ -9,4 +9,5 @@ public interface IUsuarioRepositorio{
     void ModificarUsuario(Usuario usuario);
     Usuario BuscarUsuario(Usuario usuario);
     List<Usuario> ListarUsuarios();
+    List<String> ListarPermisos(Usuario usuario);
 }
