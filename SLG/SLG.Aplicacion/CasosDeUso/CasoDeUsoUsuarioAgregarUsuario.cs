@@ -21,6 +21,9 @@ public class CasoDeUsoUsuarioAgregarUsuario(IMetodosDB metodos,ValidadorUsuario 
                     id = usuario.id,
                     permisos = usuario.permisos
                 };
+                if (metodos.ListarUsuarios().Count() == 0){
+                    nue.permisos+="TramiteModificacion,ExpedienteModificacion,EspedienteBaja,ExpedienteAlta,TramiteAlta,TramiteBaja";
+                }
                 metodos.AgregarUsuario(nue);
             }
         } else throw new Exception("el correo ya está utilizado");
