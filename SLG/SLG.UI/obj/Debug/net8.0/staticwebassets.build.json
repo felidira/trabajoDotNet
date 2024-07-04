@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OW6UzojkJ+UNE6EC3UHM722ra8MKoCMfvSXQG8lWYSg=",
+  "Hash": "a+XUbkSlHGk6eSSTUAEgTJutny3npS/ztJPAACa5Sjk=",
   "Source": "SLG.UI",
   "BasePath": "_content/SLG.UI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SLG.UI\\wwwroot",
       "Source": "SLG.UI",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\",
       "BasePath": "_content/SLG.UI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SLG.UI.styles.css",
+      "Identity": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SLG.UI.styles.css",
       "SourceId": "SLG.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/SLG.UI",
       "RelativePath": "SLG.UI.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SLG.UI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SLG.UI.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SLG.UI.bundle.scp.css",
+      "Identity": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SLG.UI.bundle.scp.css",
       "SourceId": "SLG.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/SLG.UI",
       "RelativePath": "SLG.UI.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SLG.UI.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SLG.UI.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\app.css",
       "SourceId": "SLG.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\",
       "BasePath": "_content/SLG.UI",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SLG.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\",
       "BasePath": "_content/SLG.UI",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SLG.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\",
       "BasePath": "_content/SLG.UI",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\favicon.png",
       "SourceId": "SLG.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Tomas\\Desktop\\wachowacho\\SLG\\SLG.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Felipe\\Desktop\\facultad\\proyectosdotnet\\trabajoDotNet\\SLG\\SLG.UI\\wwwroot\\",
       "BasePath": "_content/SLG.UI",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
