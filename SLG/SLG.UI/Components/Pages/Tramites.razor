@@ -9,8 +9,8 @@
 <h1>Tramites</h1>
 
 <h3>
-<button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
-<button class="btn btn-secondary" @onclick= "MostrarAgregarTramite" > Agregar Tramite</button>
+    <button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
+    <button class="btn btn-secondary" @onclick= "MostrarAgregarTramite" > Agregar Tramite</button>
 </h3>
 @if (mostrarAT && user.usuarioLoggeado!=null) {
     <input placeholder="contenido" @bind="t.contenido"/><br>
@@ -46,13 +46,17 @@
                 <td>@t.tipoTramite</td>
                 <td>
                     <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Eliminar</button>
+                    <button class="btn btn-danger" @onclick= "() => Eliminar(t)">Eliminar</button>
+                    @if (PopUpException){
+                        <PopUpException @ref="Exception" Mensaje="@men" />
+                    }
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
+@inject CasoDeUsoTramiteBaja EliminarTramiteUseCase
 @inject CasoDeUsoTramiteAlta TramiteAltaUseCase
 @inject IServicioSesion user
 @code{
@@ -67,7 +71,7 @@
     }
     public async Task AgregarTramite(){
         try{
-            if (user!=null){
+            if (user.usuarioLoggeado != null){
                 TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t);
             }
         }
@@ -76,11 +80,29 @@
             men=e.Message;
             PopUpException=true;
             Exception=new PopUpException();
-            await Task.Delay(150);
+            await Task.Delay(500);
             Exception.Mostrar();
         }
     }
     public void irPanel(){
         navegador.NavigateTo("/panel");
+    }
+    async Task Eliminar(Tramite tra){
+        try {
+            if (user.usuarioLoggeado != null)
+                EliminarTramiteUseCase.Ejecutar(user.usuarioLoggeado.id, tra);
+            men = "Se eliminó correctamente el tramite.";
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
+        catch (Exception e)
+        {
+            men = e.Message;
+            Console.WriteLine(men);
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
     }
 }

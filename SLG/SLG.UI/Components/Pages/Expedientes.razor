@@ -9,8 +9,8 @@
 
 <h1>Expedientes</h1>
     <h3>
-    <button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
-    <button class="btn btn-secondary" @onclick= "AgregarExpediente" > Agregar Expediente</button>
+        <button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
+        <button class="btn btn-secondary" @onclick= "AgregarExpediente" > Agregar Expediente</button>
     </h3>
     @if (mostrar) {
         <input placeholder="Carátula" @bind="caratulaExp" class="form-control">
@@ -43,35 +43,88 @@
                     <td>@exp.ultModificacionID</td>
                     <td>@exp.estado</td>
                     <td>
-                        <button class="btn btn-primary">Editar</button>
-                        <button class="btn btn-danger">Eliminar</button>
-                    </td>
+                        <button class="btn btn-primary" @onclick= "() => Editar(exp)">Editar</button>
+                        <button class="btn btn-danger" @onclick= "() => Eliminar(exp)">Eliminar</button>
+                        @if (PopUpException)
+                        {
+                            <PopUpException @ref="Exception" Mensaje="@men" />
+                        }
+                    </td>               
                 </tr>
             }
-        </tbody>
+        </tbody>     
     </table>
+    @if (edit){
+            <p>Completar todos los campos para el correcto funcionamiento.</p>
+            <label>Caratula: </label><input placeholder="Caratula" @bind="e.caratula" class="form-control-4"><br>
+            <select @bind="estadoAux" class="form-control"> 
+                @foreach (var estado in estadosExp)
+                {
+                    <option value="@estado">@estado</option>
+                }
+            </select>
+            <button class="btn btn-primary" @onclick="() => Aceptar1()">Aceptar</button>                            
+        }
+        @if (PopUpException){
+            <PopUpException @ref=Exception Mensaje="@men" />
+        }
 
+    @inject CasoDeUsoExpedienteModificar ModificarExpedienteUseCase
+    @inject CasoDeUsoExpedienteBaja EliminarExpedienteUseCase
     @inject IServicioSesion user
     @code {
+        List<String> estadosExp = new List<String>
+        {
+            "Recién_iniciado",
+            "Para_resolver",
+            "Con_resolución",
+            "En_notificacíon",
+            "Finalizado",
+        };
+        string estadoAux = "";
+        Expediente e = new Expediente();
         public bool PopUpException {get; set;} = false;
         public string men {get; set;} ="";
         PopUpException? Exception;
         String caratulaExp {get; set;} ="";
         public Usuario? uLoggeado {get; set;}
         bool mostrar = false;
+        Expediente auxExp = new Expediente();
+        bool edit = false;
 
         protected override void OnInitialized()
         {
             Console.WriteLine("/expedientes: user= "+ user.usuarioLoggeado?.id);
             uLoggeado = user.usuarioLoggeado;
             if (uLoggeado!=null){
-            Console.WriteLine("/expedientes uloggeado= "+uLoggeado.id);
+                Console.WriteLine("/expedientes uloggeado= "+uLoggeado.id);
             }
         }
             public void irPanel(){
             navegador.NavigateTo("/panel");
         }
 
+        async Task Aceptar1(){
+            try{
+                edit = false;
+                auxExp.caratula = e.caratula;
+                auxExp.estado = (EstadoExpediente)Enum.Parse(typeof(EstadoExpediente), estadoAux);
+                if (user.usuarioLoggeado != null)
+                    ModificarExpedienteUseCase.Ejecutar(user.usuarioLoggeado.id, auxExp);
+                men = "Se modificó correctamente";
+                PopUpException = true;
+                await Task.Delay(150);
+                Exception?.Mostrar();
+            }
+            catch (Exception e)
+            {
+                men = e.Message;
+                Console.WriteLine(men);
+                PopUpException = true;
+                await Task.Delay(150);
+                Exception?.Mostrar();
+            }
+        }
         private void AgregarExpediente(){  
             mostrar = true;
         }
@@ -88,6 +141,29 @@
                 PopUpException=true;
                 await Task.Delay(300);
                 Exception.Mostrar();
+            }
+        }
+        void Editar(Expediente exp){
+            auxExp = exp;
+            edit = true;
+        }
+
+        async Task Eliminar(Expediente exp){
+            try {
+                if (user.usuarioLoggeado != null)
+                    EliminarExpedienteUseCase.Ejecutar(user.usuarioLoggeado.id ,exp);
+                men = "Se eliminó correctamente el expediente.";
+                PopUpException = true;
+                await Task.Delay(150);
+                Exception?.Mostrar();
+            }
+            catch (Exception e)
+            {
+                men = e.Message;
+                Console.WriteLine(men);
+                PopUpException = true;
+                await Task.Delay(150);
+                Exception?.Mostrar();
             }
         }
     }

@@ -9,7 +9,7 @@ public class CasoDeUsoExpedienteModificar(IUsuarioRepositorio repoU, IExpediente
                 expediente.ultModificacion=DateTime.Now;
                 expediente.ultModificacionID=idUsuario;
                 repoE.ModificarExpediente(expediente);
-            } throw new ValidacionException();
+            } else throw new ValidacionException();
         } else throw new AutorizacionException();
     }
 }
