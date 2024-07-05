@@ -9,8 +9,8 @@
 <h1>Tramites</h1>
 
 <h3>
-<button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
-<button class="btn btn-secondary" @onclick= "MostrarAgregarTramite" > Agregar Tramite</button>
+    <button class="btn btn-secondary" @onclick= "irPanel" > ir al Panel</button>
+    <button class="btn btn-secondary" @onclick= "MostrarAgregarTramite" > Agregar Tramite</button>
 </h3>
 @if (mostrarAT && user.usuarioLoggeado!=null) {
     <input placeholder="contenido" @bind="t.contenido"/><br>
@@ -45,29 +45,58 @@
                 <td>@t.ultModificacionID</td>
                 <td>@t.tipoTramite</td>
                 <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Eliminar</button>
+                    <button class="btn btn-primary" @onclick= "() => MostrarEditar(t)">Editar</button>
+                    <button class="btn btn-danger" @onclick= "() => Eliminar(t)">Eliminar</button>
+                    @if (PopUpException){
+                        <PopUpException @ref="Exception" Mensaje="@men" />
+                    }
                 </td>
             </tr>
         }
     </tbody>
 </table>
+    @if (mostrarET){
+        <p>Completar todos los campos para el correcto funcionamiento.</p>
+        <label>Contenido: </label><input placeholder="Contenido" @bind="t.contenido" class="form-control-4"><br>
+        <label>Etiqueta: </label><select @bind="tipoAux" class="form-control-4">
+            @foreach (var tipo in tiposTramites)
+            {
+                <option value="@tipo">@tipo</option>
+            }
+        </select>
+        <button class="btn btn-primary" @onclick="() => EditarTramite()">Aceptar</button>                            
+    }
 
+@inject CasoDeUsoTramiteBaja EliminarTramiteUseCase
 @inject CasoDeUsoTramiteAlta TramiteAltaUseCase
+@inject CasoDeUsoTramiteModificar ModificarTramiteUseCase
 @inject IServicioSesion user
 @code{
 
     public bool PopUpException {get; set;} = false;
     PopUpException? Exception;
     bool mostrarAT {get; set;} = false;
-    Tramite t=new Tramite();
+    bool mostrarET {get; set;} = false;
+    string tipoAux = "";
+    List<String> tiposTramites = new List<String>
+        {
+            "Escrito_presentado",
+            "Pase_a_estudio",
+            "Despacho",
+            "Resolución",
+            "Notificación",
+            "Pase_al_archivo",
+        };
+    Tramite t=new Tramite(); //el tramite que llenan con el placeholder
+    Tramite aux=new Tramite(); //el tramite a editar o eliminar
+    
     string men="";
     public void MostrarAgregarTramite(){
         mostrarAT=true;
     }
     public async Task AgregarTramite(){
         try{
-            if (user!=null){
+            if (user.usuarioLoggeado != null){
                 TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t);
             }
         }
@@ -76,11 +105,54 @@
             men=e.Message;
             PopUpException=true;
             Exception=new PopUpException();
-            await Task.Delay(150);
+            await Task.Delay(500);
             Exception.Mostrar();
         }
     }
+    void MostrarEditar(Tramite taux){
+        aux=taux;
+        mostrarET=true;
+    }
     public void irPanel(){
         navegador.NavigateTo("/panel");
+    }
+    async Task EditarTramite()
+    {
+        try{
+                mostrarET = false;
+                aux.contenido = t.contenido;
+                aux.tipoTramite = (EtiquetaTramite)Enum.Parse(typeof(EtiquetaTramite), tipoAux);
+                if (user.usuarioLoggeado != null)
+                    ModificarTramiteUseCase.Ejecutar(user.usuarioLoggeado.id, aux);
+                men = "Se modificó correctamente";
+                PopUpException = true;
+                await Task.Delay(150);
+                Exception?.Mostrar();
+        }
+        catch (Exception e){
+            men = e.Message;
+            Console.WriteLine(men);
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
+    }
+    async Task Eliminar(Tramite tra){
+        try {
+            if (user.usuarioLoggeado != null)
+                EliminarTramiteUseCase.Ejecutar(user.usuarioLoggeado.id, tra);
+            men = "Se eliminó correctamente el tramite.";
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
+        catch (Exception e)
+        {
+            men = e.Message;
+            Console.WriteLine(men);
+            PopUpException = true;
+            await Task.Delay(150);
+            Exception?.Mostrar();
+        }
     }
 }

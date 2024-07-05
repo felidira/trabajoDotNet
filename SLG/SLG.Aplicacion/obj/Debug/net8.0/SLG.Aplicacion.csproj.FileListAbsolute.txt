@@ -22,3 +22,14 @@ C:\Users\Tomas\Desktop\tp\SLG\SLG.Aplicacion\bin\Debug\net8.0\SLG.Aplicacion.dep
 C:\Users\Tomas\Desktop\tp\SLG\SLG.Aplicacion\bin\Debug\net8.0\SLG.Aplicacion.dll
 C:\Users\Tomas\Desktop\tp\SLG\SLG.Aplicacion\bin\Debug\net8.0\SLG.Aplicacion.pdb
 C:\Users\Tomas\Desktop\tp\SLG\SLG.Aplicacion\obj\Debug\net8.0\ref\SLG.Aplicacion.dll
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\bin\Debug\net8.0\SLG.Aplicacion.deps.json
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\bin\Debug\net8.0\SLG.Aplicacion.dll
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\bin\Debug\net8.0\SLG.Aplicacion.pdb
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\SLG.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\SLG.Aplicacion.AssemblyInfoInputs.cache
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\SLG.Aplicacion.AssemblyInfo.cs
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\SLG.Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\SLG.Aplicacion.dll
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\refint\SLG.Aplicacion.dll
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\SLG.Aplicacion.pdb
+C:\Users\Tomas\Desktop\wachowacho\SLG\SLG.Aplicacion\obj\Debug\net8.0\ref\SLG.Aplicacion.dll

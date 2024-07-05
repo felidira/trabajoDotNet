@@ -25,11 +25,12 @@
         <PopUpException @ref="Exception" Mensaje="@men" />
     }
 }
-
-<h1>Tus Datos</h1>
-<p>nombre= @user.usuarioLoggeado.Nombre <br> apellido= @user.usuarioLoggeado.Apellido <br> Correo=@user.usuarioLoggeado.Correo</p>
-
-@if (user != null && user.usuarioLoggeado.id == 1)
+@if (user.usuarioLoggeado != null)
+{
+    <h1>Tus Datos</h1>
+    <p>nombre= @user.usuarioLoggeado.Nombre <br> apellido= @user.usuarioLoggeado.Apellido <br> Correo=@user.usuarioLoggeado.Correo</p>
+}
+@if (user.usuarioLoggeado != null && user.usuarioLoggeado.id == 1)
 {
     <table class="table">
         <thead>
@@ -195,7 +196,8 @@
     {
         try
         {
-            u.id = user.usuarioLoggeado.id;
+            if (user.usuarioLoggeado != null)
+                u.id = user.usuarioLoggeado.id;
             ModificarUserUseCase.Ejecutar(u);
             mostrar = false;
         }

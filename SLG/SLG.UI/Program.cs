@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<IServicioSesion,ServicioSesion>();
+builder.Services.AddScoped<IServicioSesion,ServicioSesion>();
 
 builder.Services.AddScoped<SLGContext>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
