@@ -127,3 +127,4 @@ C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.UI\obj\De
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.UI\obj\Debug\net8.0\SLG.UI.csproj.Up2Date
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.UI\obj\Debug\net8.0\SLG.UI.genruntimeconfig.cache
 C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.UI\obj\Debug\net8.0\ref\SLG.UI.dll
+C:\Users\Felipe\Desktop\facultad\proyectosdotnet\trabajoDotNet\SLG\SLG.UI\obj\Debug\net8.0\scopedcss\Components\PopUpConfirmacion.razor.rz.scp.css

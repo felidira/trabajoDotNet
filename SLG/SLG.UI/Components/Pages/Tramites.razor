@@ -13,8 +13,8 @@
     <button class="btn btn-secondary" @onclick= "MostrarAgregarTramite" > Agregar Tramite</button>
 </h3>
 @if (mostrarAT && user.usuarioLoggeado!=null) {
-    <input placeholder="contenido" @bind="t.contenido"/><br>
-    <input placeholder="idExpediente" @bind="t.ExpedienteId"/><br>
+    <label>Contenido: </label><input placeholder="contenido" @bind="contenidoAux"/><br>
+    <label>IdExpediente: </label><input placeholder="idExpediente" @bind="auxIDExpediente"/><br>
     <button class="btn btn-primary" @onclick= "AgregarTramite" > Confirmar carga</button>
     @if (PopUpException){
         <PopUpException @ref=Exception Mensaje="@men" />
@@ -46,7 +46,8 @@
                 <td>@t.tipoTramite</td>
                 <td>
                     <button class="btn btn-primary" @onclick= "() => MostrarEditar(t)">Editar</button>
-                    <button class="btn btn-danger" @onclick= "() => Eliminar(t)">Eliminar</button>
+                    <button class="btn btn-danger" @onclick= "confirmarEliminar">Eliminar</button>
+                <PopUpConfirmacion @ref=Confirmacion Mensaje="Está seguro que desea eliminar el Tramite?" OnConfirmado="() => Eliminar(t)"/>
                     @if (PopUpException){
                         <PopUpException @ref="Exception" Mensaje="@men" />
                     }
@@ -74,10 +75,14 @@
 @code{
 
     public bool PopUpException {get; set;} = false;
-    PopUpException? Exception;
+    PopUpException Exception=null!;
+    PopUpConfirmacion Confirmacion=null!;
     bool mostrarAT {get; set;} = false;
     bool mostrarET {get; set;} = false;
+    string contenidoAux = "";
     string tipoAux = "";
+    int auxIDExpediente;
+    Tramite t = new Tramite();
     List<String> tiposTramites = new List<String>
         {
             "Escrito_presentado",
@@ -87,17 +92,23 @@
             "Notificación",
             "Pase_al_archivo",
         };
-    Tramite t=new Tramite(); //el tramite que llenan con el placeholder
     Tramite aux=new Tramite(); //el tramite a editar o eliminar
     
     string men="";
+    void confirmarEliminar()
+        {
+            Confirmacion.Mostrar();
+        }
     public void MostrarAgregarTramite(){
         mostrarAT=true;
     }
     public async Task AgregarTramite(){
         try{
             if (user.usuarioLoggeado != null){
-                TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t);
+                Tramite t1 = new Tramite();
+                t1.contenido = contenidoAux;
+                t1.ExpedienteId = auxIDExpediente;
+                TramiteAltaUseCase.Ejecutar(user.usuarioLoggeado.id,t1);
             }
         }
         catch (Exception e)

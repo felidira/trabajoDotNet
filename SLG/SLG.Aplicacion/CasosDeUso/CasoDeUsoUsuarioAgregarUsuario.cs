@@ -22,7 +22,7 @@ public class CasoDeUsoUsuarioAgregarUsuario(IUsuarioRepositorio repoU,ValidadorU
                     permisos = usuario.permisos
                 };
                 if (repoU.ListarUsuarios().Count() == 0){
-                    nue.permisos+="TramiteModificacion,ExpedienteModificacion,EspedienteBaja,ExpedienteAlta,TramiteAlta,TramiteBaja";
+                    nue.permisos+="TramiteModificacion,ExpedienteModificacion,ExpedienteBaja,ExpedienteAlta,TramiteAlta,TramiteBaja";
                 }
                 repoU.AgregarUsuario(nue);
             }

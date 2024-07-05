@@ -13,7 +13,7 @@
         <button class="btn btn-secondary" @onclick= "AgregarExpediente" > Agregar Expediente</button>
     </h3>
     @if (mostrar) {
-        <input placeholder="Carátula" @bind="caratulaExp" class="form-control">
+        <label>Caratula: </label><input placeholder="Carátula" @bind="caratulaExp" class="form-control">
         <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
         @if (PopUpException){
             <PopUpException @ref=Exception Mensaje="@men" />
@@ -44,7 +44,8 @@
                     <td>@exp.estado</td>
                     <td>
                         <button class="btn btn-primary" @onclick= "() => Editar(exp)">Editar</button>
-                        <button class="btn btn-danger" @onclick= "() => Eliminar(exp)">Eliminar</button>
+                        <button class="btn btn-danger" @onclick= "confirmarEliminar">Eliminar</button>
+                        <PopUpConfirmacion @ref=Confirmacion Mensaje="Está seguro que desea eliminar el Expediente?" OnConfirmado="() => Eliminar(exp)"/>
                         @if (PopUpException)
                         {
                             <PopUpException @ref="Exception" Mensaje="@men" />
@@ -57,7 +58,7 @@
     @if (edit){
             <p>Completar todos los campos para el correcto funcionamiento.</p>
             <label>Caratula: </label><input placeholder="Caratula" @bind="e.caratula" class="form-control-4"><br>
-            <select @bind="estadoAux" class="form-control"> 
+            <label>Estado: </label><select @bind="estadoAux" class="form-control-4"> 
                 @foreach (var estado in estadosExp)
                 {
                     <option value="@estado">@estado</option>
@@ -85,7 +86,8 @@
         Expediente e = new Expediente();
         public bool PopUpException {get; set;} = false;
         public string men {get; set;} ="";
-        PopUpException? Exception;
+        PopUpConfirmacion Confirmacion=null!;
+        PopUpException Exception=null!;
         String caratulaExp {get; set;} ="";
         public Usuario? uLoggeado {get; set;}
         bool mostrar = false;
@@ -103,7 +105,10 @@
             public void irPanel(){
             navegador.NavigateTo("/panel");
         }
-
+        void confirmarEliminar()
+        {
+            Confirmacion.Mostrar();
+        }
         async Task Aceptar1(){
             try{
                 edit = false;
